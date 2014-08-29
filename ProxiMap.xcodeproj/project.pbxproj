@@ -33,9 +33,9 @@
 		799B148019AC24E300F5AB3F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799B147719AC24E300F5AB3F /* Security.framework */; };
 		799B148119AC24E300F5AB3F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799B147819AC24E300F5AB3F /* StoreKit.framework */; };
 		799B148219AC24E300F5AB3F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799B147919AC24E300F5AB3F /* SystemConfiguration.framework */; };
-		79A2A96219B10F7D005BB9AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A95F19B10F7D005BB9AC /* LoginViewController.m */; };
-		79A2A96319B10F7D005BB9AC /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96119B10F7D005BB9AC /* SigninViewController.m */; };
 		79A2A96919B12960005BB9AC /* CurrentUserAnn.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96819B12960005BB9AC /* CurrentUserAnn.m */; };
+		79A2A96C19B14A14005BB9AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96A19B14A14005BB9AC /* LoginViewController.m */; };
+		79A2A96F19B14A32005BB9AC /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96D19B14A32005BB9AC /* SigninViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,12 +81,12 @@
 		799B147719AC24E300F5AB3F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		799B147819AC24E300F5AB3F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		799B147919AC24E300F5AB3F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		79A2A95E19B10F7D005BB9AC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../../Ribbit/LoginViewController.h; sourceTree = "<group>"; };
-		79A2A95F19B10F7D005BB9AC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../../Ribbit/LoginViewController.m; sourceTree = "<group>"; };
-		79A2A96019B10F7D005BB9AC /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SigninViewController.h; path = ../../Ribbit/SigninViewController.h; sourceTree = "<group>"; };
-		79A2A96119B10F7D005BB9AC /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SigninViewController.m; path = ../../Ribbit/SigninViewController.m; sourceTree = "<group>"; };
 		79A2A96719B12960005BB9AC /* CurrentUserAnn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentUserAnn.h; path = ../CurrentUserAnn.h; sourceTree = "<group>"; };
 		79A2A96819B12960005BB9AC /* CurrentUserAnn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentUserAnn.m; path = ../CurrentUserAnn.m; sourceTree = "<group>"; };
+		79A2A96A19B14A14005BB9AC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		79A2A96B19B14A14005BB9AC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		79A2A96D19B14A32005BB9AC /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
+		79A2A96E19B14A32005BB9AC /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,12 +173,12 @@
 				7903916E19A6BF1900790372 /* AppDelegate.m */,
 				79A2A96719B12960005BB9AC /* CurrentUserAnn.h */,
 				79A2A96819B12960005BB9AC /* CurrentUserAnn.m */,
-				79A2A95E19B10F7D005BB9AC /* LoginViewController.h */,
-				79A2A95F19B10F7D005BB9AC /* LoginViewController.m */,
 				7903917319A6BF1900790372 /* MapViewController.h */,
 				7903917419A6BF1900790372 /* MapViewController.m */,
-				79A2A96019B10F7D005BB9AC /* SigninViewController.h */,
-				79A2A96119B10F7D005BB9AC /* SigninViewController.m */,
+				79A2A96A19B14A14005BB9AC /* LoginViewController.m */,
+				79A2A96D19B14A32005BB9AC /* SigninViewController.m */,
+				79A2A96E19B14A32005BB9AC /* SigninViewController.h */,
+				79A2A96B19B14A14005BB9AC /* LoginViewController.h */,
 				7903919519A6C0B700790372 /* TableViewController.h */,
 				7903919619A6C0B700790372 /* TableViewController.m */,
 				7903917619A6BF1900790372 /* Images.xcassets */,
@@ -313,13 +313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A2A96F19B14A32005BB9AC /* SigninViewController.m in Sources */,
 				7903917519A6BF1900790372 /* MapViewController.m in Sources */,
 				7903916F19A6BF1900790372 /* AppDelegate.m in Sources */,
-				79A2A96319B10F7D005BB9AC /* SigninViewController.m in Sources */,
+				79A2A96C19B14A14005BB9AC /* LoginViewController.m in Sources */,
 				79A2A96919B12960005BB9AC /* CurrentUserAnn.m in Sources */,
 				7903916B19A6BF1900790372 /* main.m in Sources */,
 				7903919719A6C0B700790372 /* TableViewController.m in Sources */,
-				79A2A96219B10F7D005BB9AC /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
