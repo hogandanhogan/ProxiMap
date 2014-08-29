@@ -33,6 +33,8 @@
 		799B148019AC24E300F5AB3F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799B147719AC24E300F5AB3F /* Security.framework */; };
 		799B148119AC24E300F5AB3F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799B147819AC24E300F5AB3F /* StoreKit.framework */; };
 		799B148219AC24E300F5AB3F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799B147919AC24E300F5AB3F /* SystemConfiguration.framework */; };
+		79A2A96219B10F7D005BB9AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A95F19B10F7D005BB9AC /* LoginViewController.m */; };
+		79A2A96319B10F7D005BB9AC /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96119B10F7D005BB9AC /* SigninViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,10 @@
 		799B147719AC24E300F5AB3F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		799B147819AC24E300F5AB3F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		799B147919AC24E300F5AB3F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		79A2A95E19B10F7D005BB9AC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../../Ribbit/LoginViewController.h; sourceTree = "<group>"; };
+		79A2A95F19B10F7D005BB9AC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../../Ribbit/LoginViewController.m; sourceTree = "<group>"; };
+		79A2A96019B10F7D005BB9AC /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SigninViewController.h; path = ../../Ribbit/SigninViewController.h; sourceTree = "<group>"; };
+		79A2A96119B10F7D005BB9AC /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SigninViewController.m; path = ../../Ribbit/SigninViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,7 @@
 		7903915219A6BF1900790372 = {
 			isa = PBXGroup;
 			children = (
+				7903917019A6BF1900790372 /* Main.storyboard */,
 				7903916419A6BF1900790372 /* ProxiMap */,
 				7903918319A6BF1900790372 /* ProxiMapTests */,
 				7903915D19A6BF1900790372 /* Frameworks */,
@@ -161,11 +168,14 @@
 			children = (
 				7903916D19A6BF1900790372 /* AppDelegate.h */,
 				7903916E19A6BF1900790372 /* AppDelegate.m */,
-				7903917019A6BF1900790372 /* Main.storyboard */,
-				7903919519A6C0B700790372 /* TableViewController.h */,
-				7903919619A6C0B700790372 /* TableViewController.m */,
+				79A2A95E19B10F7D005BB9AC /* LoginViewController.h */,
+				79A2A95F19B10F7D005BB9AC /* LoginViewController.m */,
 				7903917319A6BF1900790372 /* MapViewController.h */,
 				7903917419A6BF1900790372 /* MapViewController.m */,
+				79A2A96019B10F7D005BB9AC /* SigninViewController.h */,
+				79A2A96119B10F7D005BB9AC /* SigninViewController.m */,
+				7903919519A6C0B700790372 /* TableViewController.h */,
+				7903919619A6C0B700790372 /* TableViewController.m */,
 				7903917619A6BF1900790372 /* Images.xcassets */,
 				7903916519A6BF1900790372 /* Supporting Files */,
 			);
@@ -300,8 +310,10 @@
 			files = (
 				7903917519A6BF1900790372 /* MapViewController.m in Sources */,
 				7903916F19A6BF1900790372 /* AppDelegate.m in Sources */,
+				79A2A96319B10F7D005BB9AC /* SigninViewController.m in Sources */,
 				7903916B19A6BF1900790372 /* main.m in Sources */,
 				7903919719A6C0B700790372 /* TableViewController.m in Sources */,
+				79A2A96219B10F7D005BB9AC /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +350,7 @@
 				7903917119A6BF1900790372 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ProxiMap;
 			sourceTree = "<group>";
 		};
 		7903918619A6BF1900790372 /* InfoPlist.strings */ = {

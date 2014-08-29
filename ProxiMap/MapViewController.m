@@ -23,6 +23,14 @@
 {
     [super viewDidLoad];
     
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        NSLog(@"Current user: %@", currentUser.username);
+    }
+    else {
+        [self performSegueWithIdentifier:@"showLogin" sender:self];
+    }
+    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
