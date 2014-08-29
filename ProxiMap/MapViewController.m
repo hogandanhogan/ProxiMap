@@ -100,7 +100,8 @@ calloutAccessoryControlTapped:(UIControl *)control
 
 - (IBAction)onCancelEditView:(id)sender
 {
-    
+    [_titleTextField resignFirstResponder];
+    [_descriptionTextField resignFirstResponder];
     [UIView animateWithDuration:0.4 animations:^(void) {
         _editView.alpha = 0.90;
         _editView.alpha = 0;
@@ -111,6 +112,8 @@ calloutAccessoryControlTapped:(UIControl *)control
 
 - (IBAction)onSaveEditView:(id)sender
 {
+    [_titleTextField resignFirstResponder];
+    [_descriptionTextField resignFirstResponder];
     _cUPoint.title = _titleTextField.text;
     _cUPoint.subtitle = _descriptionTextField.text;
     [UIView animateWithDuration:0.25 animations:^(void) {
