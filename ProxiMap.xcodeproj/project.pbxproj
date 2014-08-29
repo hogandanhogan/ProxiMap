@@ -35,6 +35,7 @@
 		799B148219AC24E300F5AB3F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799B147919AC24E300F5AB3F /* SystemConfiguration.framework */; };
 		79A2A96219B10F7D005BB9AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A95F19B10F7D005BB9AC /* LoginViewController.m */; };
 		79A2A96319B10F7D005BB9AC /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96119B10F7D005BB9AC /* SigninViewController.m */; };
+		79A2A96919B12960005BB9AC /* CurrentUserAnn.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96819B12960005BB9AC /* CurrentUserAnn.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		79A2A95F19B10F7D005BB9AC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../../Ribbit/LoginViewController.m; sourceTree = "<group>"; };
 		79A2A96019B10F7D005BB9AC /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SigninViewController.h; path = ../../Ribbit/SigninViewController.h; sourceTree = "<group>"; };
 		79A2A96119B10F7D005BB9AC /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SigninViewController.m; path = ../../Ribbit/SigninViewController.m; sourceTree = "<group>"; };
+		79A2A96719B12960005BB9AC /* CurrentUserAnn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentUserAnn.h; path = ../CurrentUserAnn.h; sourceTree = "<group>"; };
+		79A2A96819B12960005BB9AC /* CurrentUserAnn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentUserAnn.m; path = ../CurrentUserAnn.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 			children = (
 				7903916D19A6BF1900790372 /* AppDelegate.h */,
 				7903916E19A6BF1900790372 /* AppDelegate.m */,
+				79A2A96719B12960005BB9AC /* CurrentUserAnn.h */,
+				79A2A96819B12960005BB9AC /* CurrentUserAnn.m */,
 				79A2A95E19B10F7D005BB9AC /* LoginViewController.h */,
 				79A2A95F19B10F7D005BB9AC /* LoginViewController.m */,
 				7903917319A6BF1900790372 /* MapViewController.h */,
@@ -311,6 +316,7 @@
 				7903917519A6BF1900790372 /* MapViewController.m in Sources */,
 				7903916F19A6BF1900790372 /* AppDelegate.m in Sources */,
 				79A2A96319B10F7D005BB9AC /* SigninViewController.m in Sources */,
+				79A2A96919B12960005BB9AC /* CurrentUserAnn.m in Sources */,
 				7903916B19A6BF1900790372 /* main.m in Sources */,
 				7903919719A6C0B700790372 /* TableViewController.m in Sources */,
 				79A2A96219B10F7D005BB9AC /* LoginViewController.m in Sources */,
