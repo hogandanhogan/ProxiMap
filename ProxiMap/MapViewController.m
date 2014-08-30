@@ -9,14 +9,15 @@
 #import "MapViewController.h"
 #import "CurrentUserAnn.h"
 #import <MapKit/MapKit.h>
+#import "LoginViewController.h"
 
 @interface MapViewController () <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property CLLocationManager *locationManager;
 @property CLLocation *currentUserlocation;
 @property (weak, nonatomic) IBOutlet UIView *editView;
-@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
-@property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
+@property (weak, nonatomic) IBOutlet UITextField *titleField;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 @property CurrentUserAnn *cUPoint;
 
 
@@ -27,16 +28,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard:)];
+    [self.view addGestureRecognizer:tap];
+
     _editView.hidden = YES;
     _editView.layer.cornerRadius = 10;
     _editView.layer.masksToBounds = YES;
     
     PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {
-    }
-    else {
-        [self performSegueWithIdentifier:@"showLogin" sender:self];
+    if (!currentUser) {
+        LoginViewController *lvc = [self.storyboard instantiateViewControllerWithIdentifier:@"showLogin"];
+        [self.navigationController pushViewController:lvc animated:YES];
     }
     
     _locationManager = [[CLLocationManager alloc] init];
@@ -91,7 +96,7 @@
 annotationView:(MKAnnotationView *)view
 calloutAccessoryControlTapped:(UIControl *)control
 {
-    [UIView animateWithDuration:0.4 animations:^(void) {
+    [UIView animateWithDuration:0.15 animations:^(void) {
         _editView.hidden = NO;
         _editView.alpha = 0;
         _editView.alpha = 0.90;
@@ -101,10 +106,10 @@ calloutAccessoryControlTapped:(UIControl *)control
 
 - (IBAction)onCancelEditView:(id)sender
 {
-    [_titleTextField resignFirstResponder];
-    [_descriptionTextField resignFirstResponder];
+    [_titleField resignFirstResponder];
+    [_descriptionField resignFirstResponder];
     [UIView animateWithDuration:0.4 animations:^(void) {
-        _editView.alpha = 0.90;
+        _editView.alpha = 0.9;
         _editView.alpha = 0;
     } completion:^(BOOL finished) {
         _editView.hidden = YES;
@@ -113,12 +118,12 @@ calloutAccessoryControlTapped:(UIControl *)control
 
 - (IBAction)onSaveEditView:(id)sender
 {
-    [_titleTextField resignFirstResponder];
-    [_descriptionTextField resignFirstResponder];
-    _cUPoint.title = _titleTextField.text;
-    _cUPoint.subtitle = _descriptionTextField.text;
-    [UIView animateWithDuration:0.25 animations:^(void) {
-        _editView.alpha = 1;
+    [_titleField resignFirstResponder];
+    [_descriptionField resignFirstResponder];
+    _cUPoint.title = _titleField.text;
+    _cUPoint.subtitle = _descriptionField.text;
+    [UIView animateWithDuration: 1.0 animations:^(void) {
+        _editView.alpha = 0.9;
         _editView.alpha = 0;
     } completion:^(BOOL finished) {
         _editView.hidden = YES;
@@ -133,6 +138,12 @@ calloutAccessoryControlTapped:(UIControl *)control
 - (IBAction)descriptionField:(id)sender
 {
 
+}
+
+- (IBAction)dismissKeyboard:(id)sender
+{
+    [self.titleField resignFirstResponder];
+    [self.descriptionField resignFirstResponder];
 }
 
 @end

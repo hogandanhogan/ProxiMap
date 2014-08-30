@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X59-te-ScJ">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X59-te-ScJ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
@@ -145,16 +145,19 @@
                         <constraints>
                             <constraint firstItem="knQ-ol-x3h" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="5za-EK-v7i"/>
                             <constraint firstItem="knQ-ol-x3h" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="19" id="EP3-Fx-daj"/>
+                            <constraint firstAttribute="trailing" secondItem="X59-te-ScJ" secondAttribute="trailing" id="HO9-Hi-Ahv"/>
+                            <constraint firstItem="X59-te-ScJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="at2-F8-SB2"/>
                             <constraint firstAttribute="trailing" secondItem="knQ-ol-x3h" secondAttribute="trailing" constant="20" id="eab-rP-gSc"/>
+                            <constraint firstItem="X59-te-ScJ" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="ibB-x2-dbP"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="X59-te-ScJ" secondAttribute="bottom" id="vjX-jO-JXQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ProxiMap" id="37Y-nN-ufs"/>
                     <connections>
-                        <outlet property="descriptionTextField" destination="TLO-nP-I3l" id="BVU-kN-ClX"/>
+                        <outlet property="descriptionField" destination="TLO-nP-I3l" id="Mfq-jM-Sj4"/>
                         <outlet property="editView" destination="knQ-ol-x3h" id="QO7-MS-NU7"/>
                         <outlet property="mapView" destination="X59-te-ScJ" id="W1C-hz-jyx"/>
-                        <outlet property="titleTextField" destination="7ky-0V-6EM" id="1fd-Cw-nIt"/>
-                        <segue destination="Wuv-fu-Fdj" kind="push" identifier="showLogin" id="tLe-kH-tyo"/>
+                        <outlet property="titleField" destination="7ky-0V-6EM" id="BoH-Ed-Heh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -213,7 +216,7 @@
         <!--Login View Controller - Ribbit-->
         <scene sceneID="Qvy-6e-ks5">
             <objects>
-                <viewController id="Wuv-fu-Fdj" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showLogin" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wuv-fu-Fdj" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="snp-GQ-fEU"/>
                         <viewControllerLayoutGuide type="bottom" id="us3-7p-ebw"/>
@@ -415,7 +418,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ImM-df-qQl">
-                                        <rect key="frame" x="20" y="22" width="69" height="44"/>
+                                        <rect key="frame" x="10" y="10" width="69" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="jpR-17-CQr"/>
@@ -443,9 +446,9 @@
                                     <constraint firstItem="jnT-XZ-qy4" firstAttribute="top" secondItem="2uv-5f-005" secondAttribute="bottom" constant="1" id="Yqz-YR-iEV"/>
                                     <constraint firstItem="jnT-XZ-qy4" firstAttribute="leading" secondItem="KMo-Aj-iET" secondAttribute="leading" constant="20" id="b2r-dl-USh"/>
                                     <constraint firstAttribute="centerY" secondItem="jnT-XZ-qy4" secondAttribute="centerY" id="i9Z-ku-zZk"/>
-                                    <constraint firstItem="ImM-df-qQl" firstAttribute="top" secondItem="KMo-Aj-iET" secondAttribute="top" constant="22" id="rvK-lI-TYN"/>
+                                    <constraint firstItem="ImM-df-qQl" firstAttribute="top" secondItem="KMo-Aj-iET" secondAttribute="top" constant="10" id="rvK-lI-TYN"/>
                                     <constraint firstItem="99Y-AT-BpP" firstAttribute="leading" secondItem="KMo-Aj-iET" secondAttribute="leading" constant="20" id="xe9-Us-vVM"/>
-                                    <constraint firstItem="ImM-df-qQl" firstAttribute="leading" secondItem="2uv-5f-005" secondAttribute="leading" id="yTM-eM-vmP"/>
+                                    <constraint firstItem="ImM-df-qQl" firstAttribute="leading" secondItem="2uv-5f-005" secondAttribute="leading" constant="-10" id="yTM-eM-vmP"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
