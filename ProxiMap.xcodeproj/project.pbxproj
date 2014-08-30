@@ -36,6 +36,7 @@
 		79A2A96919B12960005BB9AC /* CurrentUserAnn.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96819B12960005BB9AC /* CurrentUserAnn.m */; };
 		79A2A96C19B14A14005BB9AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96A19B14A14005BB9AC /* LoginViewController.m */; };
 		79A2A96F19B14A32005BB9AC /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96D19B14A32005BB9AC /* SigninViewController.m */; };
+		79A2A97819B17B2E005BB9AC /* EditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A97719B17B2E005BB9AC /* EditView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		79A2A96B19B14A14005BB9AC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		79A2A96D19B14A32005BB9AC /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		79A2A96E19B14A32005BB9AC /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
+		79A2A97619B17B2E005BB9AC /* EditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditView.h; sourceTree = "<group>"; };
+		79A2A97719B17B2E005BB9AC /* EditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,8 @@
 				79A2A96A19B14A14005BB9AC /* LoginViewController.m */,
 				7903917319A6BF1900790372 /* MapViewController.h */,
 				7903917419A6BF1900790372 /* MapViewController.m */,
+				79A2A97619B17B2E005BB9AC /* EditView.h */,
+				79A2A97719B17B2E005BB9AC /* EditView.m */,
 				79A2A96D19B14A32005BB9AC /* SigninViewController.m */,
 				79A2A96E19B14A32005BB9AC /* SigninViewController.h */,
 				7903919519A6C0B700790372 /* TableViewController.h */,
@@ -319,6 +324,7 @@
 				79A2A96C19B14A14005BB9AC /* LoginViewController.m in Sources */,
 				79A2A96919B12960005BB9AC /* CurrentUserAnn.m in Sources */,
 				7903916B19A6BF1900790372 /* main.m in Sources */,
+				79A2A97819B17B2E005BB9AC /* EditView.m in Sources */,
 				7903919719A6C0B700790372 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

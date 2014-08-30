@@ -33,6 +33,14 @@
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard:)];
     [self.view addGestureRecognizer:tap];
+    
+    UITapGestureRecognizer *editHideTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                  action:@selector(dismissEditView:)];
+//    [self.view addGestureRecognizer:editHideTap];
+//    CGPoint *point = [editHideTap locationInView:self.view];
+//    if (point) {
+//        [self dismissEditView:_editView];
+//    }
 
     _editView.hidden = YES;
     _editView.layer.cornerRadius = 10;
@@ -140,10 +148,15 @@ calloutAccessoryControlTapped:(UIControl *)control
 
 }
 
+-(IBAction)dismissEditView:(id)sender
+{
+    
+}
+
 - (IBAction)dismissKeyboard:(id)sender
 {
-    [self.titleField resignFirstResponder];
-    [self.descriptionField resignFirstResponder];
+    [_titleField resignFirstResponder];
+    [_descriptionField resignFirstResponder];
 }
 
 @end
