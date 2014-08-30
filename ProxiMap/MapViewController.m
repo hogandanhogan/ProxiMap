@@ -77,7 +77,7 @@
     
     _cUPoint = [[CurrentUserAnn alloc] init];
     _cUPoint.coordinate = self.currentUserlocation.coordinate;
-    _cUPoint.title = @"Create a title";
+    _cUPoint.title = @"Post Something";
     _cUPoint.subtitle = @"Add a description";
 
     [_mapView addAnnotation:_cUPoint];
