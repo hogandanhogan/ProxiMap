@@ -96,7 +96,8 @@ calloutAccessoryControlTapped:(UIControl *)control
         _editView.alpha = 0;
         _editView.alpha = 0.90;
     } completion:^(BOOL finished) {
-    }];}
+    }];
+}
 
 - (IBAction)onCancelEditView:(id)sender
 {
