@@ -2,7 +2,7 @@
 //  EditView.m
 //  ProxiMap
 //
-//  Created by Patrick Hogan on 8/29/14.
+//  Created by Patrick Hogan on 8/31/14.
 //  Copyright (c) 2014 Dan Hogan. All rights reserved.
 //
 
@@ -10,22 +10,38 @@
 
 @implementation EditView
 
-- (id)initWithFrame:(CGRect)frame
+-(void)scrollToY:(float)y
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    
+    [UIView beginAnimations:@"registerScroll" context:NULL];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.4];
+    self.transform = CGAffineTransformMakeTranslation(0, y);
+    [UIView commitAnimations];
+    
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+-(void)scrollToView:(EditView *)view
 {
-    // Drawing code
+    CGRect theFrame = view.frame;
+    float y = theFrame.origin.y - 15;
+    y -= (y/1.7);
+    [self scrollToY:-y];
 }
-*/
+
+
+-(void)scrollElement:(UIView *)view toPoint:(float)y
+{
+    CGRect theFrame = view.frame;
+    float orig_y = theFrame.origin.y;
+    float diff = y - orig_y;
+    if (diff < 0) {
+        [self scrollToY:diff];
+    }
+    else {
+        [self scrollToY:0];
+    }
+
+}
 
 @end

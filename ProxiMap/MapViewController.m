@@ -10,12 +10,13 @@
 #import "CurrentUserAnn.h"
 #import <MapKit/MapKit.h>
 #import "LoginViewController.h"
+#import "EditView.h"
 
-@interface MapViewController () <CLLocationManagerDelegate>
+@interface MapViewController () <CLLocationManagerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property CLLocationManager *locationManager;
 @property CLLocation *currentUserlocation;
-@property (weak, nonatomic) IBOutlet UIView *editView;
+@property (weak, nonatomic) IBOutlet EditView *editView;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 @property CurrentUserAnn *cUPoint;
@@ -28,19 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.titleField.delegate = self;
+    self.descriptionField.delegate = self;
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
-                                   action:@selector(dismissKeyboard:)];
+                                   action:@selector(dismissKeyboardonTapOutside:)];
     [self.view addGestureRecognizer:tap];
-    
-    UITapGestureRecognizer *editHideTap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                  action:@selector(dismissEditView:)];
-//    [self.view addGestureRecognizer:editHideTap];
-//    CGPoint *point = [editHideTap locationInView:self.view];
-//    if (point) {
-//        [self dismissEditView:_editView];
-//    }
 
     _editView.hidden = YES;
     _editView.layer.cornerRadius = 10;
@@ -100,9 +96,7 @@
     [errorAlert show];
 }
 
--(void)mapView:(MKMapView *)mapView
-annotationView:(MKAnnotationView *)view
-calloutAccessoryControlTapped:(UIControl *)control
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     [UIView animateWithDuration:0.15 animations:^(void) {
         _editView.hidden = NO;
@@ -110,6 +104,23 @@ calloutAccessoryControlTapped:(UIControl *)control
         _editView.alpha = 0.90;
     } completion:^(BOOL finished) {
     }];
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self.view];
+    if (CGRectContainsPoint(self.editView.frame, point)) {
+        return;
+    } else {
+        [UIView animateWithDuration:0.4 animations:^(void) {
+            _editView.alpha = 0.9;
+            _editView.alpha = 0;
+        } completion:^(BOOL finished) {
+            _editView.hidden = YES;
+        }];
+    }
+
 }
 
 - (IBAction)onCancelEditView:(id)sender
@@ -140,7 +151,7 @@ calloutAccessoryControlTapped:(UIControl *)control
 
 - (IBAction)titleField:(id)sender
 {
-
+    
 }
 
 - (IBAction)descriptionField:(id)sender
@@ -148,15 +159,21 @@ calloutAccessoryControlTapped:(UIControl *)control
 
 }
 
--(IBAction)dismissEditView:(id)sender
-{
-    
-}
-
-- (IBAction)dismissKeyboard:(id)sender
+- (IBAction)dismissKeyboardonTapOutside:(id)sender
 {
     [_titleField resignFirstResponder];
     [_descriptionField resignFirstResponder];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self.editView scrollToY:0];
+}
+
+-(void) textFieldDidEndEditing:(UITextField *)textField
+{
+    [self.editView scrollToY:0];
+    [textField resignFirstResponder];
 }
 
 @end
