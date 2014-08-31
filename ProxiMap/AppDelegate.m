@@ -16,6 +16,14 @@
     [Parse setApplicationId:@"2U7bqZUy7btM3ofltsd0I2qdLFyaIDR995jQQUzn"
                   clientKey:@"NDxiYuXDLGB1BY9VSKoEG5dQKw55ydc7TP2eev84"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+//    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor
+//                                                           [UIFont fontWithName:@"Avenir-Heavy" size:21.0], UITextAttributeFont]];
+//                                                           [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
+//
+
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"Avenir-Heavy" size: 24.0], NSFontAttributeName, nil]];
+
     return YES;
 }
 							

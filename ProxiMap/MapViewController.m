@@ -150,14 +150,9 @@
 }
 
 - (IBAction)titleField:(id)sender
-{
-    
-}
-
+{}
 - (IBAction)descriptionField:(id)sender
-{
-
-}
+{}
 
 - (IBAction)dismissKeyboardonTapOutside:(id)sender
 {
@@ -167,7 +162,7 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    [self.editView scrollToY:0];
+    [self.editView scrollToView:self.view];
 }
 
 -(void) textFieldDidEndEditing:(UITextField *)textField

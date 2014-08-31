@@ -23,8 +23,8 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="gSv-R0-W9z"/>
                                 </connections>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knQ-ol-x3h" userLabel="Edit View">
-                                <rect key="frame" x="20" y="83" width="280" height="233"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knQ-ol-x3h" userLabel="Edit View" customClass="EditView">
+                                <rect key="frame" x="20" y="167" width="280" height="233"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Your Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyV-9Z-6ff">
@@ -144,7 +144,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="knQ-ol-x3h" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="5za-EK-v7i"/>
-                            <constraint firstItem="knQ-ol-x3h" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="19" id="EP3-Fx-daj"/>
+                            <constraint firstItem="knQ-ol-x3h" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="103" id="EP3-Fx-daj"/>
                             <constraint firstAttribute="trailing" secondItem="X59-te-ScJ" secondAttribute="trailing" id="HO9-Hi-Ahv"/>
                             <constraint firstItem="X59-te-ScJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="at2-F8-SB2"/>
                             <constraint firstAttribute="trailing" secondItem="knQ-ol-x3h" secondAttribute="trailing" constant="20" id="eab-rP-gSc"/>
@@ -172,6 +172,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R6C-J2-XbO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.19474224452554745" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

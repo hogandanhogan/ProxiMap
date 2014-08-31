@@ -23,10 +23,10 @@
 
 -(void)scrollToView:(EditView *)view
 {
-    CGRect theFrame = view.frame;
-    float y = theFrame.origin.y - 15;
-    y -= (y/1.7);
-    [self scrollToY:-y];
+    CGRect editViewFrame = view.frame;
+    float y = editViewFrame.origin.y - 80;
+
+    [self scrollToY:y];
 }
 
 
