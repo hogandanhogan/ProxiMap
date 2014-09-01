@@ -14,7 +14,7 @@
 {
     [self.mapViewController.currentUser setObject:self.mapViewController.cUPoint.title forKey:@"title"];
     [self.mapViewController.currentUser setObject:self.mapViewController.cUPoint.subtitle forKey:@"subtitle"];
-    self.mapViewController.userLocation = [PFObject objectWithClassName:@"userLocation"];
+    self.mapViewController.userLocation = [PFObject objectWithClassName:@"UserLocation"];
     self.mapViewController.point = [PFGeoPoint geoPointWithLocation:self.mapViewController.currentUserlocation];
     self.mapViewController.userLocation[@"location"] = self.mapViewController.point;
     

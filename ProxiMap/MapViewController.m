@@ -31,6 +31,8 @@
     
     self.titleField.delegate = self;
     self.descriptionField.delegate = self;
+    
+    self.parseDataHandler = [ParseDataHandler new];
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -146,8 +148,6 @@
     self.cUPoint.title = self.titleField.text;
     self.cUPoint.subtitle = self.descriptionField.text;
     
-    [self.currentUser setObject:self.titleField.text forKey:@"title"];
-    [self.currentUser setObject:self.titleField.text forKey:@"subtitle"];
     [self.parseDataHandler saveToParse];
     
     [UIView animateWithDuration: 1.0 animations:^(void) {
