@@ -1,0 +1,24 @@
+PODS:
+  - Bolts (1.1.2)
+  - Facebook-iOS-SDK (3.17.0):
+    - Bolts
+  - Parse (1.2.21):
+    - Facebook-iOS-SDK (~> 3.17)
+  - TPKeyboardAvoiding (1.2.4)
+
+DEPENDENCIES:
+  - Parse (~> 1.2.20)
+  - TPKeyboardAvoiding (from `https://github.com/michaeltyson/TPKeyboardAvoiding.git`, tag `1.2.4`)
+
+EXTERNAL SOURCES:
+  TPKeyboardAvoiding:
+    :git: https://github.com/michaeltyson/TPKeyboardAvoiding.git
+    :tag: 1.2.4
+
+SPEC CHECKSUMS:
+  Bolts: 2635e8698a630774689441047f3465d78c48d485
+  Facebook-iOS-SDK: f20274d809f112ba540842e2b6cbe50128d51b7b
+  Parse: 4be4e9fe2ee6dae16010e7622a5641a7c89154b7
+  TPKeyboardAvoiding: 8697452d663b08df4f7bbcc983741e9754aaeacc
+
+COCOAPODS: 0.33.1

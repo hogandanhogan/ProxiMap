@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CurrentUserAnn.h"
 
 @interface MapViewController : UIViewController
+
+@property PFUser *currentUser;
+@property PFObject *userLocation;
+@property PFGeoPoint *point;
+@property PFObject *post;
+@property CurrentUserAnn *cUPoint;
+@property CLLocation *currentUserlocation;
 
 @end

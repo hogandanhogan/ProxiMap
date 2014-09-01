@@ -7,7 +7,7 @@
         <!--Map View Controller - ProxiMap-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vXZ-lx-hvc" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -214,7 +214,7 @@
             </objects>
             <point key="canvasLocation" x="750" y="352"/>
         </scene>
-        <!--Login View Controller - Ribbit-->
+        <!--Login View Controller-->
         <scene sceneID="Qvy-6e-ks5">
             <objects>
                 <viewController storyboardIdentifier="showLogin" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wuv-fu-Fdj" customClass="LoginViewController" sceneMemberID="viewController">
@@ -261,7 +261,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMH-s2-R5u">
                                         <rect key="frame" x="40" y="306" width="240" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.45924134799999999" green="0.77472916849999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.19474224449999999" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="8t8-i5-FcL"/>
                                             <constraint firstAttribute="width" constant="240" id="Jzd-f4-1gs"/>
@@ -275,14 +275,14 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.45924134799999999" green="0.77472916849999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.45924134799999999" green="0.77472916849999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="GMH-s2-R5u" secondAttribute="bottom" priority="1" constant="222" id="6pW-cC-v9K"/>
                                     <constraint firstItem="GMH-s2-R5u" firstAttribute="top" secondItem="rSN-VB-SNp" secondAttribute="bottom" id="9to-8B-vtX"/>
                                     <constraint firstItem="9Vh-IC-Ixk" firstAttribute="leading" secondItem="XMt-xY-2xe" secondAttribute="leading" constant="20" id="CSr-qf-7vV"/>
                                     <constraint firstAttribute="trailing" secondItem="rSN-VB-SNp" secondAttribute="trailing" constant="20" id="Ggm-rf-KCO"/>
                                     <constraint firstItem="rSN-VB-SNp" firstAttribute="top" secondItem="9Vh-IC-Ixk" secondAttribute="bottom" constant="1" id="Qfr-61-Tmn"/>
-                                    <constraint firstAttribute="bottom" secondItem="GMH-s2-R5u" secondAttribute="bottom" constant="222" id="ZKf-0G-Ubs"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GMH-s2-R5u" secondAttribute="bottom" constant="4" id="WdD-Ea-2EU"/>
                                     <constraint firstAttribute="trailing" secondItem="9Vh-IC-Ixk" secondAttribute="trailing" constant="20" id="acD-Xz-6DB"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GMH-s2-R5u" secondAttribute="trailing" constant="4" id="cVT-h9-aNi"/>
                                     <constraint firstItem="GMH-s2-R5u" firstAttribute="leading" secondItem="XMt-xY-2xe" secondAttribute="leading" constant="40" id="qDl-2v-072"/>
@@ -317,7 +317,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.45924134799999999" green="0.77472916849999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.19474224449999999" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.45924134799999999" green="0.77472916849999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="XMt-xY-2xe" firstAttribute="top" secondItem="Lrp-EO-9aM" secondAttribute="top" id="CVq-xw-FRD"/>
@@ -330,7 +330,7 @@
                             <constraint firstItem="XMt-xY-2xe" firstAttribute="leading" secondItem="Lrp-EO-9aM" secondAttribute="leading" id="lKz-NH-gyc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Ribbit" id="xjW-YU-7DJ"/>
+                    <navigationItem key="navigationItem" id="xjW-YU-7DJ"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -342,7 +342,7 @@
             </objects>
             <point key="canvasLocation" x="1169" y="-358"/>
         </scene>
-        <!--Signin View Controller - Ribbit-->
+        <!--Signin View Controller-->
         <scene sceneID="TkQ-3C-tSu">
             <objects>
                 <viewController id="XCM-w8-l9q" customClass="SigninViewController" sceneMemberID="viewController">
@@ -375,7 +375,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzL-yc-dvA">
                                         <rect key="frame" x="40" y="351" width="240" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.45924134799999999" green="0.77472916849999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.19474224449999999" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="0oE-Ut-VRt"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Rx4-7x-Kf4"/>
@@ -435,8 +435,9 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="BzL-yc-dvA" secondAttribute="bottom" constant="177" id="0C5-z7-370"/>
+                                    <constraint firstAttribute="bottom" secondItem="BzL-yc-dvA" secondAttribute="bottom" priority="1" constant="177" id="0C5-z7-370"/>
                                     <constraint firstItem="99Y-AT-BpP" firstAttribute="top" secondItem="jnT-XZ-qy4" secondAttribute="bottom" constant="1" id="3Qh-2o-hMc"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BzL-yc-dvA" secondAttribute="bottom" constant="4" id="5w1-15-cWi"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BzL-yc-dvA" secondAttribute="trailing" constant="4" id="8OL-Do-3ez"/>
                                     <constraint firstItem="2uv-5f-005" firstAttribute="leading" secondItem="jnT-XZ-qy4" secondAttribute="leading" id="EIo-CT-JA2"/>
                                     <constraint firstItem="BzL-yc-dvA" firstAttribute="top" secondItem="99Y-AT-BpP" secondAttribute="bottom" id="ENi-Yh-qzY"/>
@@ -453,7 +454,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.45924134799999999" green="0.77472916849999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.19474224449999999" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QTj-z1-P6y" firstAttribute="top" secondItem="KMo-Aj-iET" secondAttribute="bottom" id="1fb-Ph-bcF"/>
                             <constraint firstItem="KMo-Aj-iET" firstAttribute="leading" secondItem="cYU-So-prZ" secondAttribute="leading" id="FcM-Zf-pZo"/>
@@ -461,7 +462,7 @@
                             <constraint firstItem="KMo-Aj-iET" firstAttribute="top" secondItem="cYU-So-prZ" secondAttribute="top" id="s42-XW-pkJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Ribbit" id="pvc-7u-wZy"/>
+                    <navigationItem key="navigationItem" id="pvc-7u-wZy"/>
                     <connections>
                         <outlet property="emailField" destination="99Y-AT-BpP" id="isv-YH-TOG"/>
                         <outlet property="passwordField" destination="jnT-XZ-qy4" id="HHi-Fl-xIr"/>

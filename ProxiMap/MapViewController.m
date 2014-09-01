@@ -7,19 +7,18 @@
 //
 
 #import "MapViewController.h"
-#import "CurrentUserAnn.h"
 #import <MapKit/MapKit.h>
 #import "LoginViewController.h"
 #import "EditView.h"
+#import "ParseDataHandler.h"
 
 @interface MapViewController () <CLLocationManagerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property CLLocationManager *locationManager;
-@property CLLocation *currentUserlocation;
 @property (weak, nonatomic) IBOutlet EditView *editView;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
-@property CurrentUserAnn *cUPoint;
+@property (nonatomic) ParseDataHandler *parseDataHandler;
 
 
 @end
@@ -42,8 +41,8 @@
     _editView.layer.cornerRadius = 10;
     _editView.layer.masksToBounds = YES;
     
-    PFUser *currentUser = [PFUser currentUser];
-    if (!currentUser) {
+    self.currentUser = [PFUser currentUser];
+    if (!self.currentUser) {
         LoginViewController *lvc = [self.storyboard instantiateViewControllerWithIdentifier:@"showLogin"];
         [self.navigationController pushViewController:lvc animated:YES];
     }
@@ -53,6 +52,11 @@
     [_locationManager startUpdatingLocation];
     
     [_locationManager startUpdatingLocation];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setHidden:NO];
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView
@@ -137,10 +141,15 @@
 
 - (IBAction)onSaveEditView:(id)sender
 {
-    [_titleField resignFirstResponder];
-    [_descriptionField resignFirstResponder];
-    _cUPoint.title = _titleField.text;
-    _cUPoint.subtitle = _descriptionField.text;
+    [self.titleField resignFirstResponder];
+    [self.descriptionField resignFirstResponder];
+    self.cUPoint.title = self.titleField.text;
+    self.cUPoint.subtitle = self.descriptionField.text;
+    
+    [self.currentUser setObject:self.titleField.text forKey:@"title"];
+    [self.currentUser setObject:self.titleField.text forKey:@"subtitle"];
+    [self.parseDataHandler saveToParse];
+    
     [UIView animateWithDuration: 1.0 animations:^(void) {
         _editView.alpha = 0.9;
         _editView.alpha = 0;
@@ -149,10 +158,8 @@
     }];
 }
 
-- (IBAction)titleField:(id)sender
-{}
-- (IBAction)descriptionField:(id)sender
-{}
+- (IBAction)titleField:(id)sender{}
+- (IBAction)descriptionField:(id)sender{}
 
 - (IBAction)dismissKeyboardonTapOutside:(id)sender
 {
