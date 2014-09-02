@@ -89,8 +89,8 @@
     
     _cUPoint = [[CurrentUserAnn alloc] init];
     _cUPoint.coordinate = self.currentUserlocation.coordinate;
-    _cUPoint.title = @"Create a title";
-    _cUPoint.subtitle = @"Add a description";
+    _cUPoint.title = @"Update your title";
+    _cUPoint.subtitle = @"Update your description";
 
     [_mapView addAnnotation:_cUPoint];
     
@@ -162,11 +162,14 @@
 
 - (IBAction)titleField:(id)sender{}
 - (IBAction)descriptionField:(id)sender{}
+- (IBAction)searchField:(id)sender {
+}
 
 - (IBAction)dismissKeyboardonTapOutside:(id)sender
 {
     [_titleField resignFirstResponder];
     [_descriptionField resignFirstResponder];
+    [_searchField resignFirstResponder];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField

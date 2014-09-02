@@ -45,6 +45,7 @@
                                             <constraint firstAttribute="width" constant="210" id="OdC-Ag-ZPj"/>
                                             <constraint firstAttribute="height" constant="30" id="csR-6r-iXx"/>
                                         </constraints>
+                                        <color key="textColor" white="0.19474224449999999" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -81,6 +82,7 @@
                                             <constraint firstAttribute="height" constant="30" id="3lZ-Kd-5Wf"/>
                                             <constraint firstAttribute="width" constant="210" id="g22-jt-urG"/>
                                         </constraints>
+                                        <color key="textColor" white="0.19474224449999999" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -151,8 +153,12 @@
                                             <constraint firstAttribute="width" constant="280" id="IQx-ck-6NC"/>
                                             <constraint firstAttribute="height" constant="30" id="woY-pL-VuW"/>
                                         </constraints>
+                                        <color key="textColor" white="0.19474224449999999" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="searchField:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="Dus-gN-Ls1"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
