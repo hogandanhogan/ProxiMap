@@ -10,6 +10,7 @@
 
 @implementation EditView
 
+//TODO:pull out the "scrolling bullshit into another class"
 -(void)scrollToY:(float)y
 {
     

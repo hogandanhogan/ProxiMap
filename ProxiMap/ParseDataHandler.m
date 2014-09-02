@@ -12,6 +12,7 @@
 
 - (void)saveToParse
 {
+    //possible TODO: not sure if I need to retain the currentUser title and subtitle
     [self.mapViewController.currentUser setObject:self.mapViewController.cUPoint.title forKey:@"title"];
     [self.mapViewController.currentUser setObject:self.mapViewController.cUPoint.subtitle forKey:@"subtitle"];
     self.mapViewController.userLocation = [PFObject objectWithClassName:@"UserLocation"];

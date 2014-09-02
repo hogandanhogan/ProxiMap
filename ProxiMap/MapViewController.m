@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 @property (nonatomic) ParseDataHandler *parseDataHandler;
+@property (weak, nonatomic) IBOutlet UITextField *searchField;
+@property (weak, nonatomic) IBOutlet UIView *searchFieldContainer;
 
 
 @end
@@ -170,12 +172,27 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     [self.editView scrollToView:self.view];
+    
+    float y = self.searchFieldContainer.frame.origin.y - 120;
+    [self scrollToY:y];
 }
 
 -(void) textFieldDidEndEditing:(UITextField *)textField
 {
     [self.editView scrollToY:0];
     [textField resignFirstResponder];
+    [self scrollToY:0];
 }
+
+-(void)scrollToY:(float)y
+{
+    [UIView beginAnimations:@"registerScroll" context:NULL];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.4];
+    self.searchFieldContainer.transform = CGAffineTransformMakeTranslation(0, y);
+    [UIView commitAnimations];
+}
+
+
 
 @end
