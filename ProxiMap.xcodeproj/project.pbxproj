@@ -23,7 +23,6 @@
 		7903918819A6BF1900790372 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7903918619A6BF1900790372 /* InfoPlist.strings */; };
 		7903918A19A6BF1900790372 /* ProxiMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7903918919A6BF1900790372 /* ProxiMapTests.m */; };
 		7903919419A6C01700790372 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7903919319A6C01700790372 /* MapKit.framework */; };
-		7903919719A6C0B700790372 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7903919619A6C0B700790372 /* TableViewController.m */; };
 		79351A3919B407FA005A4B2E /* ParseDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 79351A3819B407FA005A4B2E /* ParseDataHandler.m */; };
 		799B147A19AC24E300F5AB3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799B147119AC24E300F5AB3F /* AudioToolbox.framework */; };
 		799B147B19AC24E300F5AB3F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799B147219AC24E300F5AB3F /* CFNetwork.framework */; };
@@ -38,6 +37,10 @@
 		79A2A96C19B14A14005BB9AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96A19B14A14005BB9AC /* LoginViewController.m */; };
 		79A2A96F19B14A32005BB9AC /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96D19B14A32005BB9AC /* SigninViewController.m */; };
 		79FA3FB119B37987004B66AF /* EditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FA3FB019B37987004B66AF /* EditView.m */; };
+		E7ACCC7119C8C9660041577C /* PMRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ACCC7019C8C9660041577C /* PMRadialGradientLayer.m */; };
+		E7ACCC7419C8CB460041577C /* PMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ACCC7319C8CB460041577C /* PMColor.m */; };
+		E7ACCC7A19C8CC840041577C /* ListView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ACCC7919C8CC840041577C /* ListView.m */; };
+		E7ACCC7D19C8D6870041577C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ACCC7C19C8D6870041577C /* ListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +75,6 @@
 		7903918719A6BF1900790372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7903918919A6BF1900790372 /* ProxiMapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProxiMapTests.m; sourceTree = "<group>"; };
 		7903919319A6C01700790372 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		7903919519A6C0B700790372 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		7903919619A6C0B700790372 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		79351A3719B407FA005A4B2E /* ParseDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseDataHandler.h; sourceTree = "<group>"; };
 		79351A3819B407FA005A4B2E /* ParseDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDataHandler.m; sourceTree = "<group>"; };
 		799B147119AC24E300F5AB3F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -94,6 +95,14 @@
 		79FA3FAF19B37987004B66AF /* EditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditView.h; sourceTree = "<group>"; };
 		79FA3FB019B37987004B66AF /* EditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditView.m; sourceTree = "<group>"; };
 		8692E4B787A84C40AB6456F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7ACCC6F19C8C9660041577C /* PMRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMRadialGradientLayer.h; sourceTree = "<group>"; };
+		E7ACCC7019C8C9660041577C /* PMRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMRadialGradientLayer.m; sourceTree = "<group>"; };
+		E7ACCC7219C8CB460041577C /* PMColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMColor.h; sourceTree = "<group>"; };
+		E7ACCC7319C8CB460041577C /* PMColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMColor.m; sourceTree = "<group>"; };
+		E7ACCC7819C8CC840041577C /* ListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListView.h; sourceTree = "<group>"; };
+		E7ACCC7919C8CC840041577C /* ListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListView.m; sourceTree = "<group>"; };
+		E7ACCC7B19C8D6870041577C /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		E7ACCC7C19C8D6870041577C /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,14 +194,20 @@
 				79A2A96A19B14A14005BB9AC /* LoginViewController.m */,
 				7903917319A6BF1900790372 /* MapViewController.h */,
 				7903917419A6BF1900790372 /* MapViewController.m */,
+				E7ACCC6F19C8C9660041577C /* PMRadialGradientLayer.h */,
+				E7ACCC7019C8C9660041577C /* PMRadialGradientLayer.m */,
 				79351A3719B407FA005A4B2E /* ParseDataHandler.h */,
 				79351A3819B407FA005A4B2E /* ParseDataHandler.m */,
 				79FA3FAF19B37987004B66AF /* EditView.h */,
 				79FA3FB019B37987004B66AF /* EditView.m */,
+				E7ACCC7219C8CB460041577C /* PMColor.h */,
+				E7ACCC7319C8CB460041577C /* PMColor.m */,
 				79A2A96D19B14A32005BB9AC /* SigninViewController.m */,
 				79A2A96E19B14A32005BB9AC /* SigninViewController.h */,
-				7903919519A6C0B700790372 /* TableViewController.h */,
-				7903919619A6C0B700790372 /* TableViewController.m */,
+				E7ACCC7819C8CC840041577C /* ListView.h */,
+				E7ACCC7919C8CC840041577C /* ListView.m */,
+				E7ACCC7B19C8D6870041577C /* ListViewController.h */,
+				E7ACCC7C19C8D6870041577C /* ListViewController.m */,
 				7903917619A6BF1900790372 /* Images.xcassets */,
 				7903916519A6BF1900790372 /* Supporting Files */,
 			);
@@ -360,15 +375,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7ACCC7119C8C9660041577C /* PMRadialGradientLayer.m in Sources */,
 				79A2A96F19B14A32005BB9AC /* SigninViewController.m in Sources */,
 				7903917519A6BF1900790372 /* MapViewController.m in Sources */,
+				E7ACCC7419C8CB460041577C /* PMColor.m in Sources */,
 				7903916F19A6BF1900790372 /* AppDelegate.m in Sources */,
 				79351A3919B407FA005A4B2E /* ParseDataHandler.m in Sources */,
 				79A2A96C19B14A14005BB9AC /* LoginViewController.m in Sources */,
 				79A2A96919B12960005BB9AC /* CurrentUserAnn.m in Sources */,
 				7903916B19A6BF1900790372 /* main.m in Sources */,
+				E7ACCC7A19C8CC840041577C /* ListView.m in Sources */,
+				E7ACCC7D19C8D6870041577C /* ListViewController.m in Sources */,
 				79FA3FB119B37987004B66AF /* EditView.m in Sources */,
-				7903919719A6C0B700790372 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -41,9 +41,9 @@
                                    action:@selector(dismissKeyboardonTapOutside:)];
     [self.view addGestureRecognizer:tap];
 
-    _editView.hidden = YES;
-    _editView.layer.cornerRadius = 10;
-    _editView.layer.masksToBounds = YES;
+    self.editView.hidden = YES;
+    self.editView.layer.cornerRadius = 10;
+    self.editView.layer.masksToBounds = YES;
     
     self.currentUser = [PFUser currentUser];
     if (!self.currentUser) {
@@ -51,11 +51,11 @@
         [self.navigationController pushViewController:lvc animated:YES];
     }
     
-    _locationManager = [[CLLocationManager alloc] init];
-    _locationManager.delegate = self;
-    [_locationManager startUpdatingLocation];
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self.locationManager startUpdatingLocation];
     
-    [_locationManager startUpdatingLocation];
+    [self.locationManager startUpdatingLocation];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -81,18 +81,18 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    [_locationManager stopUpdatingLocation];
-    _currentUserlocation = [locations lastObject];
+    [self.locationManager stopUpdatingLocation];
+    self.currentUserlocation = [locations lastObject];
     
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(_currentUserlocation.coordinate, 250, 250);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.currentUserlocation.coordinate, 250, 250);
     [_mapView setRegion:region];
     
-    _cUPoint = [[CurrentUserAnn alloc] init];
-    _cUPoint.coordinate = self.currentUserlocation.coordinate;
-    _cUPoint.title = @"Update your title";
-    _cUPoint.subtitle = @"Update your description";
+    self.cUPoint = [[CurrentUserAnn alloc] init];
+    self.cUPoint.coordinate = self.currentUserlocation.coordinate;
+    self.cUPoint.title = @"Update your title";
+    self.cUPoint.subtitle = @"Update your description";
 
-    [_mapView addAnnotation:_cUPoint];
+    [self.mapView addAnnotation:self.cUPoint];
     
 
 }
@@ -107,11 +107,10 @@
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     [UIView animateWithDuration:0.15 animations:^(void) {
-        _editView.hidden = NO;
-        _editView.alpha = 0;
-        _editView.alpha = 0.90;
-    } completion:^(BOOL finished) {
-    }];
+        self.editView.hidden = NO;
+        self.editView.alpha = 0;
+        self.editView.alpha = 0.90;
+    } completion:nil];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -122,10 +121,10 @@
         return;
     } else {
         [UIView animateWithDuration:0.4 animations:^(void) {
-            _editView.alpha = 0.9;
-            _editView.alpha = 0;
+            self.editView.alpha = 0.9;
+            self.editView.alpha = 0;
         } completion:^(BOOL finished) {
-            _editView.hidden = YES;
+            self.editView.hidden = YES;
         }];
     }
 
@@ -133,13 +132,13 @@
 
 - (IBAction)onCancelEditView:(id)sender
 {
-    [_titleField resignFirstResponder];
-    [_descriptionField resignFirstResponder];
+    [self.titleField resignFirstResponder];
+    [self.descriptionField resignFirstResponder];
     [UIView animateWithDuration:0.4 animations:^(void) {
-        _editView.alpha = 0.9;
-        _editView.alpha = 0;
+        self.editView.alpha = 0.9;
+        self.editView.alpha = 0;
     } completion:^(BOOL finished) {
-        _editView.hidden = YES;
+        self.editView.hidden = YES;
     }];
 }
 
@@ -153,10 +152,10 @@
     [self.parseDataHandler saveToParse];
     
     [UIView animateWithDuration: 1.0 animations:^(void) {
-        _editView.alpha = 0.9;
-        _editView.alpha = 0;
+        self.editView.alpha = 0.9;
+        self.editView.alpha = 0;
     } completion:^(BOOL finished) {
-        _editView.hidden = YES;
+        self.editView.hidden = YES;
     }];
 }
 
@@ -167,9 +166,9 @@
 
 - (IBAction)dismissKeyboardonTapOutside:(id)sender
 {
-    [_titleField resignFirstResponder];
-    [_descriptionField resignFirstResponder];
-    [_searchField resignFirstResponder];
+    [self.titleField resignFirstResponder];
+    [self.descriptionField resignFirstResponder];
+    [self.searchField resignFirstResponder];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
