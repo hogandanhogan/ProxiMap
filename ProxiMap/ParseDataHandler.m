@@ -10,6 +10,16 @@
 
 @implementation ParseDataHandler
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+
+    }
+    
+    return self;
+}
+
 - (void)saveToParse
 {
     //possible TODO: not sure if I need to retain the currentUser title and subtitle

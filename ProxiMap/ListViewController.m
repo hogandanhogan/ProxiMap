@@ -11,7 +11,7 @@
 @interface ListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property NSArray *users;
+@property NSArray *posts;
 
 @end
 
@@ -23,13 +23,23 @@
 
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByAscending:<#(NSString *)#>]
+
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.users.count;
+    return self.posts.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 68;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

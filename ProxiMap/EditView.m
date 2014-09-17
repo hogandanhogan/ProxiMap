@@ -49,18 +49,18 @@
 }
 
 //TODO:class the scrolling logic
--(void)scrollToY:(float)y
+- (void)scrollToY:(float)y
 {
     
     [UIView beginAnimations:@"registerScroll" context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDuration:0.4];
+    [UIView setAnimationDuration:0.3];
     self.transform = CGAffineTransformMakeTranslation(0, y);
     [UIView commitAnimations];
     
 }
 
--(void)scrollToView:(EditView *)view
+- (void)scrollToView:(EditView *)view
 {
     CGRect editViewFrame = view.frame;
     float y = editViewFrame.origin.y - 80;
@@ -69,7 +69,7 @@
 }
 
 
--(void)scrollElement:(UIView *)view toPoint:(float)y
+- (void)scrollElement:(UIView *)view toPoint:(float)y
 {
     CGRect theFrame = view.frame;
     float orig_y = theFrame.origin.y;

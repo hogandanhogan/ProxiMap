@@ -33,8 +33,6 @@
     
     self.titleField.delegate = self;
     self.descriptionField.delegate = self;
-    
-    self.parseDataHandler = [ParseDataHandler new];
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -58,12 +56,12 @@
     [self.locationManager startUpdatingLocation];
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController.navigationBar setHidden:NO];
 }
 
--(MKAnnotationView *)mapView:(MKMapView *)mapView
+- (MKAnnotationView *)mapView:(MKMapView *)mapView
            viewForAnnotation:(id<MKAnnotation>)annotation
 {
     if([annotation isKindOfClass:[CurrentUserAnn class]]) {
@@ -77,6 +75,7 @@
         return nil;
     }
 }
+
 #pragma mark CLLocation Mangager Delegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -93,18 +92,19 @@
     self.cUPoint.subtitle = @"Update your description";
 
     [self.mapView addAnnotation:self.cUPoint];
-    
-
 }
 
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                         message:@"Failed to Get Your Location"
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
     [errorAlert show];
 }
 
--(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     [UIView animateWithDuration:0.15 animations:^(void) {
         self.editView.hidden = NO;
@@ -113,14 +113,14 @@
     } completion:nil];
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self.view];
     if (CGRectContainsPoint(self.editView.frame, point)) {
         return;
     } else {
-        [UIView animateWithDuration:0.4 animations:^(void) {
+        [UIView animateWithDuration:0.3 animations:^(void) {
             self.editView.alpha = 0.9;
             self.editView.alpha = 0;
         } completion:^(BOOL finished) {
@@ -134,7 +134,7 @@
 {
     [self.titleField resignFirstResponder];
     [self.descriptionField resignFirstResponder];
-    [UIView animateWithDuration:0.4 animations:^(void) {
+    [UIView animateWithDuration:0.3 animations:^(void) {
         self.editView.alpha = 0.9;
         self.editView.alpha = 0;
     } completion:^(BOOL finished) {
@@ -148,10 +148,40 @@
     [self.descriptionField resignFirstResponder];
     self.cUPoint.title = self.titleField.text;
     self.cUPoint.subtitle = self.descriptionField.text;
-    
-    [self.parseDataHandler saveToParse];
-    
-    [UIView animateWithDuration: 1.0 animations:^(void) {
+    self.parseDataHandler = [ParseDataHandler new];
+
+    self.userLocation = [PFObject objectWithClassName:@"UserLocation"];
+    self.point = [PFGeoPoint geoPointWithLocation:self.currentUserlocation];
+    self.userLocation[@"location"] = self.point;
+
+    self.post = [PFObject objectWithClassName:@"Post"];
+    self.post[@"title"] = self.cUPoint.title;
+    self.post[@"subtitle"] = self.cUPoint.subtitle;
+
+    [self.currentUser setObject:self.cUPoint.title forKey:@"title"];
+    [self.currentUser setObject:self.cUPoint.subtitle forKey:@"subtitle"];
+    [self.currentUser setObject:self.userLocation forKey:@"location"];
+
+    [self.userLocation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Connection error, try again"
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil];
+            [errorAlert show];
+        }
+    }];
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Connection error, try again"
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil];
+            [errorAlert show];
+        }
+    }];
+
+    [UIView animateWithDuration: 0.3 animations:^(void) {
         self.editView.alpha = 0.9;
         self.editView.alpha = 0;
     } completion:^(BOOL finished) {
@@ -161,8 +191,7 @@
 
 - (IBAction)titleField:(id)sender{}
 - (IBAction)descriptionField:(id)sender{}
-- (IBAction)searchField:(id)sender {
-}
+- (IBAction)searchField:(id)sender {}
 
 - (IBAction)dismissKeyboardonTapOutside:(id)sender
 {
@@ -173,24 +202,28 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    [self.editView scrollToView:self.view];
-    
-    float y = self.searchFieldContainer.frame.origin.y - 120;
-    [self scrollToY:y];
+        [self.editView scrollToView:self.view];
+
+        float y = self.searchFieldContainer.frame.origin.y - 120;
+        [self scrollToY:y];
 }
 
--(void) textFieldDidEndEditing:(UITextField *)textField
+- (void) textFieldDidEndEditing:(UITextField *)textField
 {
-    [self.editView scrollToY:0];
-    [textField resignFirstResponder];
-    [self scrollToY:0];
+    if ([self.view isFirstResponder]) {
+        return;
+    } else {
+        [self.editView scrollToY:0];
+        [textField resignFirstResponder];
+        [self scrollToY:0];
+    }
 }
 
--(void)scrollToY:(float)y
+- (void)scrollToY:(float)y
 {
     [UIView beginAnimations:@"registerScroll" context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDuration:0.4];
+    [UIView setAnimationDuration:0.3];
     self.searchFieldContainer.transform = CGAffineTransformMakeTranslation(0, y);
     [UIView commitAnimations];
 }

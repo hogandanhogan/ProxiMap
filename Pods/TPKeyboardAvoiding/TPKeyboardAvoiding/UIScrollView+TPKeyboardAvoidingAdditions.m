@@ -142,7 +142,7 @@ static const int kStateKey;
     return NO;
 }
 
--(void)TPKeyboardAvoiding_scrollToActiveTextField {
+- (void)TPKeyboardAvoiding_scrollToActiveTextField {
     TPKeyboardAvoidingState *state = self.keyboardAvoidingState;
     
     if ( !state.keyboardVisible ) return;
@@ -202,7 +202,7 @@ static const int kStateKey;
     }
 }
 
--(CGSize)TPKeyboardAvoiding_calculatedContentSizeFromSubviewFrames {
+- (CGSize)TPKeyboardAvoiding_calculatedContentSizeFromSubviewFrames {
     
     BOOL wasShowingVerticalScrollIndicator = self.showsVerticalScrollIndicator;
     BOOL wasShowingHorizontalScrollIndicator = self.showsHorizontalScrollIndicator;
@@ -231,7 +231,7 @@ static const int kStateKey;
     return newInset;
 }
 
--(CGFloat)TPKeyboardAvoiding_idealOffsetForView:(UIView *)view withViewingAreaHeight:(CGFloat)viewAreaHeight {
+- (CGFloat)TPKeyboardAvoiding_idealOffsetForView:(UIView *)view withViewingAreaHeight:(CGFloat)viewAreaHeight {
     CGSize contentSize = self.contentSize;
     CGFloat offset = 0.0;
 
