@@ -14,14 +14,13 @@
 
 @interface MapViewController () <CLLocationManagerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet EditView *editView;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 @property (nonatomic) ParseDataHandler *parseDataHandler;
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 @property (weak, nonatomic) IBOutlet UIView *searchFieldContainer;
-
+@property (nonatomic) CLLocationManager *locationManager;
 
 @end
 

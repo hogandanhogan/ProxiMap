@@ -26,7 +26,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    [query orderByAscending:<#(NSString *)#>]
+    //[query orderByAscending:<#(NSString *)#>]
 
 }
 
