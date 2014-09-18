@@ -175,7 +175,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ProxiMap" id="37Y-nN-ufs">
-                        <barButtonItem key="rightBarButtonItem" title="List" id="bSt-Wh-Yj6">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="bSt-Wh-Yj6">
                             <connections>
                                 <segue destination="zhV-ac-Jke" kind="push" id="zwq-SK-IyM"/>
                             </connections>
@@ -202,7 +202,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R6C-J2-XbO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.61268248175182483" blue="0.12194913321167883" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.36862745099999999" green="0.4549019608" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -216,7 +216,7 @@
         <!--List View Controller-->
         <scene sceneID="qVw-16-YxK">
             <objects>
-                <viewController id="zhV-ac-Jke" customClass="ListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="listVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zhV-ac-Jke" customClass="ListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dT8-2u-Cg8"/>
                         <viewControllerLayoutGuide type="bottom" id="m5x-FO-AWa"/>

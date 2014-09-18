@@ -16,7 +16,6 @@
 		7903916F19A6BF1900790372 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7903916E19A6BF1900790372 /* AppDelegate.m */; };
 		7903917219A6BF1900790372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7903917019A6BF1900790372 /* Main.storyboard */; };
 		7903917519A6BF1900790372 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7903917419A6BF1900790372 /* MapViewController.m */; };
-		7903917719A6BF1900790372 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7903917619A6BF1900790372 /* Images.xcassets */; };
 		7903917E19A6BF1900790372 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7903917D19A6BF1900790372 /* XCTest.framework */; };
 		7903917F19A6BF1900790372 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7903915E19A6BF1900790372 /* Foundation.framework */; };
 		7903918019A6BF1900790372 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7903916219A6BF1900790372 /* UIKit.framework */; };
@@ -37,6 +36,8 @@
 		79A2A96C19B14A14005BB9AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96A19B14A14005BB9AC /* LoginViewController.m */; };
 		79A2A96F19B14A32005BB9AC /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96D19B14A32005BB9AC /* SigninViewController.m */; };
 		79FA3FB119B37987004B66AF /* EditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FA3FB019B37987004B66AF /* EditView.m */; };
+		E7A7B48119CB7651002A8356 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A7B48019CB7651002A8356 /* ListTableViewCell.m */; };
+		E7A7B48719CB8E1D002A8356 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7A7B48519CB8E1D002A8356 /* Images.xcassets */; };
 		E7ACCC7119C8C9660041577C /* PMRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ACCC7019C8C9660041577C /* PMRadialGradientLayer.m */; };
 		E7ACCC7419C8CB460041577C /* PMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ACCC7319C8CB460041577C /* PMColor.m */; };
 		E7ACCC7A19C8CC840041577C /* ListView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ACCC7919C8CC840041577C /* ListView.m */; };
@@ -68,7 +69,6 @@
 		7903917119A6BF1900790372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7903917319A6BF1900790372 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		7903917419A6BF1900790372 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		7903917619A6BF1900790372 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7903917C19A6BF1900790372 /* ProxiMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProxiMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7903917D19A6BF1900790372 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		7903918519A6BF1900790372 /* ProxiMapTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProxiMapTests-Info.plist"; sourceTree = "<group>"; };
@@ -95,6 +95,9 @@
 		79FA3FAF19B37987004B66AF /* EditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditView.h; sourceTree = "<group>"; };
 		79FA3FB019B37987004B66AF /* EditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditView.m; sourceTree = "<group>"; };
 		8692E4B787A84C40AB6456F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7A7B47F19CB7651002A8356 /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
+		E7A7B48019CB7651002A8356 /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
+		E7A7B48519CB8E1D002A8356 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E7ACCC6F19C8C9660041577C /* PMRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMRadialGradientLayer.h; sourceTree = "<group>"; };
 		E7ACCC7019C8C9660041577C /* PMRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMRadialGradientLayer.m; sourceTree = "<group>"; };
 		E7ACCC7219C8CB460041577C /* PMColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMColor.h; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 				7903916E19A6BF1900790372 /* AppDelegate.m */,
 				79A2A96719B12960005BB9AC /* CurrentUserAnn.h */,
 				79A2A96819B12960005BB9AC /* CurrentUserAnn.m */,
+				E7A7B47F19CB7651002A8356 /* ListTableViewCell.h */,
+				E7A7B48019CB7651002A8356 /* ListTableViewCell.m */,
 				79A2A96B19B14A14005BB9AC /* LoginViewController.h */,
 				79A2A96A19B14A14005BB9AC /* LoginViewController.m */,
 				7903917319A6BF1900790372 /* MapViewController.h */,
@@ -208,7 +213,6 @@
 				E7ACCC7919C8CC840041577C /* ListView.m */,
 				E7ACCC7B19C8D6870041577C /* ListViewController.h */,
 				E7ACCC7C19C8D6870041577C /* ListViewController.m */,
-				7903917619A6BF1900790372 /* Images.xcassets */,
 				7903916519A6BF1900790372 /* Supporting Files */,
 			);
 			path = ProxiMap;
@@ -217,6 +221,7 @@
 		7903916519A6BF1900790372 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E7A7B48519CB8E1D002A8356 /* Images.xcassets */,
 				7903916619A6BF1900790372 /* ProxiMap-Info.plist */,
 				7903916719A6BF1900790372 /* InfoPlist.strings */,
 				7903916A19A6BF1900790372 /* main.m */,
@@ -321,8 +326,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7903917719A6BF1900790372 /* Images.xcassets in Resources */,
 				7903916919A6BF1900790372 /* InfoPlist.strings in Resources */,
+				E7A7B48719CB8E1D002A8356 /* Images.xcassets in Resources */,
 				7903917219A6BF1900790372 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +390,7 @@
 				79A2A96919B12960005BB9AC /* CurrentUserAnn.m in Sources */,
 				7903916B19A6BF1900790372 /* main.m in Sources */,
 				E7ACCC7A19C8CC840041577C /* ListView.m in Sources */,
+				E7A7B48119CB7651002A8356 /* ListTableViewCell.m in Sources */,
 				E7ACCC7D19C8D6870041577C /* ListViewController.m in Sources */,
 				79FA3FB119B37987004B66AF /* EditView.m in Sources */,
 			);

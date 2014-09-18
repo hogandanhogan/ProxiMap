@@ -33,7 +33,7 @@
 
 + (UIColor *)lightBlueColor
 {
-    return [UIColor colorWithRed:0.05 green:0.83 blue:0.99 alpha:1];
+    return [UIColor colorWithRed:0.44 green:0.75 blue:0.75 alpha:1];
 }
 
 + (UIColor *)darkBlueColor

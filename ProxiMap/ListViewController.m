@@ -23,7 +23,9 @@
 
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.separatorColor = [UIColor clearColor];
+
+    self.posts = [NSArray arrayWithObjects:@"Hi", @"How are you", @"Have a nice day", nil];
 
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     //[query orderByAscending:<#(NSString *)#>]
@@ -37,15 +39,18 @@
     return self.posts.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 68;
+    return 64;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Avenir-heavy" size:24.0];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.text = [self.posts objectAtIndex:indexPath.row];
 
     return cell;
 }

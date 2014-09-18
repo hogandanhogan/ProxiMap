@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "EditView.h"
 #import "ParseDataHandler.h"
+#import "ListViewController.h"
 
 @interface MapViewController () <CLLocationManagerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -50,9 +51,14 @@
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    [self.locationManager requestWhenInUseAuthorization ];
     [self.locationManager startUpdatingLocation];
-    
-    [self.locationManager startUpdatingLocation];
+
+    UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:@"menu51.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(onRightBarButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
+    [button setFrame:CGRectMake(0, 0, 18, 18)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -108,7 +114,7 @@
     [UIView animateWithDuration:0.15 animations:^(void) {
         self.editView.hidden = NO;
         self.editView.alpha = 0;
-        self.editView.alpha = 0.90;
+        self.editView.alpha = 1.0;
     } completion:nil];
 }
 
@@ -120,7 +126,7 @@
         return;
     } else {
         [UIView animateWithDuration:0.3 animations:^(void) {
-            self.editView.alpha = 0.9;
+            self.editView.alpha = 1.0;
             self.editView.alpha = 0;
         } completion:^(BOOL finished) {
             self.editView.hidden = YES;
@@ -134,11 +140,17 @@
     [self.titleField resignFirstResponder];
     [self.descriptionField resignFirstResponder];
     [UIView animateWithDuration:0.3 animations:^(void) {
-        self.editView.alpha = 0.9;
+        self.editView.alpha = 1.0;
         self.editView.alpha = 0;
     } completion:^(BOOL finished) {
         self.editView.hidden = YES;
     }];
+}
+
+- (IBAction)onRightBarButtonSelected:(id)sender
+{
+    ListViewController *lvc = [self.storyboard instantiateViewControllerWithIdentifier:@"listVC"];
+    [self.navigationController pushViewController:lvc animated:YES];
 }
 
 - (IBAction)onSaveEditView:(id)sender
@@ -181,7 +193,7 @@
     }];
 
     [UIView animateWithDuration: 0.3 animations:^(void) {
-        self.editView.alpha = 0.9;
+        self.editView.alpha = 1.0;
         self.editView.alpha = 0;
     } completion:^(BOOL finished) {
         self.editView.hidden = YES;
