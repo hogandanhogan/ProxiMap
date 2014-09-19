@@ -25,13 +25,12 @@
     //possible TODO: not sure if I need to retain the currentUser title and subtitle
     [self.mapViewController.currentUser setObject:self.mapViewController.cUPoint.title forKey:@"title"];
     [self.mapViewController.currentUser setObject:self.mapViewController.cUPoint.subtitle forKey:@"subtitle"];
-    self.mapViewController.userLocation = [PFObject objectWithClassName:@"UserLocation"];
-    self.mapViewController.point = [PFGeoPoint geoPointWithLocation:self.mapViewController.currentUserlocation];
-    self.mapViewController.userLocation[@"location"] = self.mapViewController.point;
-    
+    self.mapViewController.point = [PFGeoPoint geoPointWithLocation:self.mapViewController.currentUserLocation];
+
     self.mapViewController.post = [PFObject objectWithClassName:@"Post"];
     self.mapViewController.post[@"title"] = self.mapViewController.cUPoint.title;
     self.mapViewController.post[@"subtitle"] = self.mapViewController.cUPoint.subtitle;
+    self.mapViewController.post[@"location"] = self.mapViewController.currentUserLocation;
     [self.mapViewController.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         UIAlertView *errorAlert = [[UIAlertView alloc]
                                    initWithTitle:@"Error" message:@"Connection error, try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

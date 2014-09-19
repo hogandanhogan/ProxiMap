@@ -11,7 +11,8 @@
 @interface ListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property NSArray *posts;
+@property (nonatomic) NSArray *posts;
+@property (nonatomic) PFQuery *query;
 
 @end
 
@@ -25,11 +26,38 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorColor = [UIColor clearColor];
 
-    self.posts = [NSArray arrayWithObjects:@"Hi", @"How are you", @"Have a nice day", nil];
+    self.posts = [NSArray new];
 
-    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    //[query orderByAscending:<#(NSString *)#>]
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLocation:self.currentUserLocation];
 
+    self.query = [PFQuery queryWithClassName:@"Post"];
+    //PFGeoPoint *postLocation = [PFGeoPoint ]
+    [self.query whereKey:@"location" nearGeoPoint:point];
+
+    [self.query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d posts.", posts.count);
+            // Do something with the found objects
+            self.posts = posts;
+            [self.tableView reloadData];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
+    UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:@"pins53.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(onLeftBarButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
+    [button setFrame:CGRectMake(0, 0, 18 , 26.2)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -47,12 +75,24 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell" forIndexPath:indexPath];
+
+    PFObject *post = [self.posts objectAtIndex:indexPath.row];
+
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.font = [UIFont fontWithName:@"Avenir-heavy" size:24.0];
     cell.textLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.text = [self.posts objectAtIndex:indexPath.row];
+    cell.textLabel.text = [post objectForKey:@"title"];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Avenir-heavy" size:16.0];
+    cell.detailTextLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.text = [post objectForKey:@"title"];
+    cell.detailTextLabel.text = [post objectForKey:@"subtitle"];
 
     return cell;
+}
+
+- (IBAction)onLeftBarButtonSelected:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

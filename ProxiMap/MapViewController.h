@@ -12,10 +12,9 @@
 @interface MapViewController : UIViewController
 
 @property (nonatomic) PFUser *currentUser;
-@property (nonatomic) PFObject *userLocation;
 @property (nonatomic) PFGeoPoint *point;
 @property (nonatomic) PFObject *post;
 @property (nonatomic) CurrentUserAnn *cUPoint;
-@property (nonatomic) CLLocation *currentUserlocation;
+@property (nonatomic) CLLocation *currentUserLocation;
 
 @end

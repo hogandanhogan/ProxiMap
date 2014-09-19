@@ -51,7 +51,7 @@
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    [self.locationManager requestWhenInUseAuthorization ];
+    [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
 
     UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
@@ -86,13 +86,13 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     [self.locationManager stopUpdatingLocation];
-    self.currentUserlocation = [locations lastObject];
+    self.currentUserLocation = [locations lastObject];
     
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.currentUserlocation.coordinate, 250, 250);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.currentUserLocation.coordinate, 250, 250);
     [_mapView setRegion:region];
     
     self.cUPoint = [[CurrentUserAnn alloc] init];
-    self.cUPoint.coordinate = self.currentUserlocation.coordinate;
+    self.cUPoint.coordinate = self.currentUserLocation.coordinate;
     self.cUPoint.title = @"Update your title";
     self.cUPoint.subtitle = @"Update your description";
 
@@ -161,35 +161,25 @@
     self.cUPoint.subtitle = self.descriptionField.text;
     self.parseDataHandler = [ParseDataHandler new];
 
-    self.userLocation = [PFObject objectWithClassName:@"UserLocation"];
-    self.point = [PFGeoPoint geoPointWithLocation:self.currentUserlocation];
-    self.userLocation[@"location"] = self.point;
+    self.point = [PFGeoPoint geoPointWithLocation:self.currentUserLocation];
 
     self.post = [PFObject objectWithClassName:@"Post"];
     self.post[@"title"] = self.cUPoint.title;
     self.post[@"subtitle"] = self.cUPoint.subtitle;
+    self.post[@"location"] = self.point;
+
 
     [self.currentUser setObject:self.cUPoint.title forKey:@"title"];
     [self.currentUser setObject:self.cUPoint.subtitle forKey:@"subtitle"];
-    [self.currentUser setObject:self.userLocation forKey:@"location"];
 
-    [self.userLocation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (error) {
-            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Connection error, try again"
-                                                                delegate:nil
-                                                       cancelButtonTitle:@"OK"
-                                                       otherButtonTitles:nil];
-            [errorAlert show];
-        }
-    }];
     [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
-            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Connection error, try again"
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Connection error, try again"
                                                                 delegate:nil
                                                        cancelButtonTitle:@"OK"
-                                                       otherButtonTitles:nil];
-            [errorAlert show];
+                                                       otherButtonTitles:nil] show];
         }
+
     }];
 
     [UIView animateWithDuration: 0.3 animations:^(void) {
@@ -237,6 +227,13 @@
     [UIView setAnimationDuration:0.3];
     self.searchFieldContainer.transform = CGAffineTransformMakeTranslation(0, y);
     [UIView commitAnimations];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[ListViewController class]]) {
+        self.currentUserLocation = ((ListViewController *)[segue destinationViewController]).currentUserLocation;
+    }
 }
 
 

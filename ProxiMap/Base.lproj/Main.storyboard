@@ -174,13 +174,7 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="X59-te-ScJ" secondAttribute="bottom" id="vjX-jO-JXQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ProxiMap" id="37Y-nN-ufs">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="bSt-Wh-Yj6">
-                            <connections>
-                                <segue destination="zhV-ac-Jke" kind="push" id="zwq-SK-IyM"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="ProxiMap" id="37Y-nN-ufs"/>
                     <connections>
                         <outlet property="descriptionField" destination="TLO-nP-I3l" id="Mfq-jM-Sj4"/>
                         <outlet property="editView" destination="knQ-ol-x3h" id="QO7-MS-NU7"/>
@@ -213,7 +207,7 @@
             </objects>
             <point key="canvasLocation" x="185" y="60"/>
         </scene>
-        <!--List View Controller-->
+        <!--Posts-->
         <scene sceneID="qVw-16-YxK">
             <objects>
                 <viewController storyboardIdentifier="listVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zhV-ac-Jke" customClass="ListViewController" sceneMemberID="viewController">
@@ -225,16 +219,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Refine" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWi-KW-5nv">
+                                <rect key="frame" x="0.0" y="20" width="320" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Gjo-G0-PAe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YlE-7A-23i">
-                                <rect key="frame" x="0.0" y="94" width="320" height="474"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="526"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" id="p9t-OO-aZh">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" textLabel="CEa-xz-mbb" detailTextLabel="aWm-Rf-cMr" style="IBUITableViewCellStyleSubtitle" id="p9t-OO-aZh">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p9t-OO-aZh" id="miK-KX-Jdx">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CEa-xz-mbb">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aWm-Rf-cMr">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
@@ -244,28 +261,19 @@
                                     <outlet property="delegate" destination="zhV-ac-Jke" id="g2w-Jk-pZ5"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Refine" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWi-KW-5nv">
-                                <rect key="frame" x="0.0" y="64" width="320" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="XZJ-GI-42y"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YlE-7A-23i" firstAttribute="top" secondItem="cWi-KW-5nv" secondAttribute="bottom" id="3MN-Pr-pS6"/>
-                            <constraint firstItem="cWi-KW-5nv" firstAttribute="leading" secondItem="gAT-eT-L6f" secondAttribute="leadingMargin" constant="-16" id="Ceo-qP-yhK"/>
-                            <constraint firstItem="YlE-7A-23i" firstAttribute="leading" secondItem="gAT-eT-L6f" secondAttribute="leadingMargin" constant="-16" id="Jh1-Vm-9yp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cWi-KW-5nv" secondAttribute="trailing" constant="-16" id="PKQ-U7-OOa"/>
-                            <constraint firstItem="m5x-FO-AWa" firstAttribute="top" secondItem="YlE-7A-23i" secondAttribute="bottom" id="cEd-lC-lz9"/>
-                            <constraint firstItem="cWi-KW-5nv" firstAttribute="top" secondItem="dT8-2u-Cg8" secondAttribute="bottom" id="gEx-fw-HV0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YlE-7A-23i" secondAttribute="trailing" constant="-16" id="rqk-nb-Xft"/>
+                            <constraint firstItem="YlE-7A-23i" firstAttribute="top" secondItem="cWi-KW-5nv" secondAttribute="bottom" id="59z-VU-rek"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YlE-7A-23i" secondAttribute="trailing" constant="-16" id="6gh-cv-kke"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="YlE-7A-23i" secondAttribute="bottom" constant="-18" id="ItF-DW-k5P"/>
+                            <constraint firstItem="cWi-KW-5nv" firstAttribute="top" secondItem="dT8-2u-Cg8" secondAttribute="bottom" id="Wea-Ur-ho6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cWi-KW-5nv" secondAttribute="trailing" constant="-16" id="brJ-kt-s8F"/>
+                            <constraint firstItem="YlE-7A-23i" firstAttribute="leading" secondItem="gAT-eT-L6f" secondAttribute="leadingMargin" constant="-16" id="nVg-M3-jG3"/>
+                            <constraint firstItem="cWi-KW-5nv" firstAttribute="leading" secondItem="gAT-eT-L6f" secondAttribute="leadingMargin" constant="-16" id="shr-7Y-G2Y"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ZCj-KS-5KZ"/>
+                    <navigationItem key="navigationItem" title="Posts" id="ZCj-KS-5KZ"/>
                     <connections>
                         <outlet property="tableView" destination="YlE-7A-23i" id="mJC-Km-RNU"/>
                     </connections>
