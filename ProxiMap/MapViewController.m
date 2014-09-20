@@ -57,6 +57,12 @@
     [button addTarget:self action:@selector(onRightBarButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
     [button setFrame:CGRectMake(0, 0, 18, 18)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+
+    UIButton *button2 =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [button2 setImage:[UIImage imageNamed:@"settings.png"] forState:UIControlStateNormal];
+    [button2 addTarget:self action:@selector(onLeftBarButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
+    [button2 setFrame:CGRectMake(0, 0, 18, 18)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button2];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -72,30 +78,23 @@
         postPoint.title = [post objectForKey:@"title"];
         postPoint.subtitle = [post objectForKey:@"subtitle"];
         [self.mapView addAnnotation:postPoint];
-        MKPinAnnotationView *postAnnotationView = [[MKPinAnnotationView alloc] initWithAnnotation:postPoint reuseIdentifier:nil];
-        postAnnotationView.canShowCallout = YES;
-        postAnnotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
+    
     [self.mapView reloadInputViews];
 
     [self.navigationController.navigationBar setHidden:NO];
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView
-           viewForAnnotation:(id<MKAnnotation>)annotation
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    if([annotation isKindOfClass:[CurrentUserAnn class]]) {
-        CurrentUserAnn *cUPoint = (CurrentUserAnn *)annotation;
-        MKPinAnnotationView *pinLabel = [[MKPinAnnotationView alloc] initWithAnnotation:cUPoint reuseIdentifier:nil];
-        pinLabel.canShowCallout = YES;
-        pinLabel.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    MKPinAnnotationView *pinLabel = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+    pinLabel.canShowCallout = YES;
+    pinLabel.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    if([annotation isKindOfClass:[CurrentUserAnnotation class]]) {
         pinLabel.pinColor = MKPinAnnotationColorGreen;
-        
-        return pinLabel;
     }
-    else {
-        return nil;
-    }
+    return pinLabel;
+
 }
 
 #pragma mark CLLocation Mangager Delegate
@@ -108,7 +107,7 @@
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.currentUserLocation.coordinate, 250, 250);
     [_mapView setRegion:region];
     
-    self.cUPoint = [[CurrentUserAnn alloc] init];
+    self.cUPoint = [[CurrentUserAnnotation alloc] init];
     self.cUPoint.coordinate = self.currentUserLocation.coordinate;
     self.cUPoint.title = @"Create a post";
     self.cUPoint.subtitle = @"Add a description";
@@ -163,7 +162,10 @@
         self.editView.hidden = YES;
     }];
 }
+- (IBAction)onLeftBarButtonSelected:(id)sender
+{
 
+}
 - (IBAction)onRightBarButtonSelected:(id)sender
 {
     ListViewController *lvc = [self.storyboard instantiateViewControllerWithIdentifier:@"listVC"];

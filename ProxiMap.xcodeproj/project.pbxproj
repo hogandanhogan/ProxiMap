@@ -32,7 +32,7 @@
 		799B148019AC24E300F5AB3F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799B147719AC24E300F5AB3F /* Security.framework */; };
 		799B148119AC24E300F5AB3F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799B147819AC24E300F5AB3F /* StoreKit.framework */; };
 		799B148219AC24E300F5AB3F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799B147919AC24E300F5AB3F /* SystemConfiguration.framework */; };
-		79A2A96919B12960005BB9AC /* CurrentUserAnn.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96819B12960005BB9AC /* CurrentUserAnn.m */; };
+		79A2A96919B12960005BB9AC /* CurrentUserAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96819B12960005BB9AC /* CurrentUserAnnotation.m */; };
 		79A2A96C19B14A14005BB9AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96A19B14A14005BB9AC /* LoginViewController.m */; };
 		79A2A96F19B14A32005BB9AC /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96D19B14A32005BB9AC /* SigninViewController.m */; };
 		79FA3FB119B37987004B66AF /* EditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FA3FB019B37987004B66AF /* EditView.m */; };
@@ -86,8 +86,8 @@
 		799B147719AC24E300F5AB3F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		799B147819AC24E300F5AB3F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		799B147919AC24E300F5AB3F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		79A2A96719B12960005BB9AC /* CurrentUserAnn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentUserAnn.h; path = ../CurrentUserAnn.h; sourceTree = "<group>"; };
-		79A2A96819B12960005BB9AC /* CurrentUserAnn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentUserAnn.m; path = ../CurrentUserAnn.m; sourceTree = "<group>"; };
+		79A2A96719B12960005BB9AC /* CurrentUserAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentUserAnnotation.h; path = ../CurrentUserAnnotation.h; sourceTree = "<group>"; };
+		79A2A96819B12960005BB9AC /* CurrentUserAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentUserAnnotation.m; path = ../CurrentUserAnnotation.m; sourceTree = "<group>"; };
 		79A2A96A19B14A14005BB9AC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		79A2A96B19B14A14005BB9AC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		79A2A96D19B14A32005BB9AC /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
@@ -191,8 +191,8 @@
 			children = (
 				7903916D19A6BF1900790372 /* AppDelegate.h */,
 				7903916E19A6BF1900790372 /* AppDelegate.m */,
-				79A2A96719B12960005BB9AC /* CurrentUserAnn.h */,
-				79A2A96819B12960005BB9AC /* CurrentUserAnn.m */,
+				79A2A96719B12960005BB9AC /* CurrentUserAnnotation.h */,
+				79A2A96819B12960005BB9AC /* CurrentUserAnnotation.m */,
 				E7A7B47F19CB7651002A8356 /* ListTableViewCell.h */,
 				E7A7B48019CB7651002A8356 /* ListTableViewCell.m */,
 				79A2A96B19B14A14005BB9AC /* LoginViewController.h */,
@@ -387,7 +387,7 @@
 				7903916F19A6BF1900790372 /* AppDelegate.m in Sources */,
 				79351A3919B407FA005A4B2E /* ParseDataHandler.m in Sources */,
 				79A2A96C19B14A14005BB9AC /* LoginViewController.m in Sources */,
-				79A2A96919B12960005BB9AC /* CurrentUserAnn.m in Sources */,
+				79A2A96919B12960005BB9AC /* CurrentUserAnnotation.m in Sources */,
 				7903916B19A6BF1900790372 /* main.m in Sources */,
 				E7ACCC7A19C8CC840041577C /* ListView.m in Sources */,
 				E7A7B48119CB7651002A8356 /* ListTableViewCell.m in Sources */,

@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Dan Hogan. All rights reserved.
 //
 
-#import "CurrentUserAnn.h"
+#import "CurrentUserAnnotation.h"
 
-@implementation CurrentUserAnn
+@implementation CurrentUserAnnotation
 
 @end

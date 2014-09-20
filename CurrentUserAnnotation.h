@@ -8,6 +8,6 @@
 
 #import <MapKit/MapKit.h>
 
-@interface CurrentUserAnn : MKPointAnnotation
+@interface CurrentUserAnnotation : MKPointAnnotation
 
 @end

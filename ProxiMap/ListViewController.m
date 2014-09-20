@@ -30,9 +30,9 @@
     self.posts = self.parseDataHandler.posts;
 
     UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"pins53.png"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"pins9.png"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(onLeftBarButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
-    [button setFrame:CGRectMake(0, 0, 18 , 26.2)];
+    [button setFrame:CGRectMake(0, 0, 16 , 24.2)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 
 }

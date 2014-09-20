@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CurrentUserAnn.h"
+#import "CurrentUserAnnotation.h"
 
 @interface MapViewController : UIViewController
 
 @property (nonatomic) PFUser *currentUser;
 @property (nonatomic) PFGeoPoint *point;
 @property (nonatomic) PFObject *post;
-@property (nonatomic) CurrentUserAnn *cUPoint;
+@property (nonatomic) CurrentUserAnnotation *cUPoint;
 @property (nonatomic) CLLocation *currentUserLocation;
 
 @end
