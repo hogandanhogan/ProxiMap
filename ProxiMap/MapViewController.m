@@ -30,7 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+    self.parseDataHandler = [[ParseDataHandler alloc] init];
+
     self.titleField.delegate = self;
     self.descriptionField.delegate = self;
 
@@ -38,10 +40,6 @@
                                    initWithTarget:self
                                    action:@selector(dismissKeyboardonTapOutside:)];
     [self.view addGestureRecognizer:tap];
-
-    self.editView.hidden = YES;
-    self.editView.layer.cornerRadius = 10;
-    self.editView.layer.masksToBounds = YES;
     
     self.currentUser = [PFUser currentUser];
     if (!self.currentUser) {
@@ -63,6 +61,23 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self.parseDataHandler queryPosts];
+    for (PFObject *post in self.parseDataHandler.posts) {
+        PFGeoPoint *point = [post objectForKey:@"location"];
+        CLLocationCoordinate2D coordinate;
+        coordinate.latitude = point.latitude;
+        coordinate.longitude = point.longitude;
+        MKPointAnnotation *postPoint = [MKPointAnnotation new];
+        postPoint.coordinate = coordinate;
+        postPoint.title = [post objectForKey:@"title"];
+        postPoint.subtitle = [post objectForKey:@"subtitle"];
+        [self.mapView addAnnotation:postPoint];
+        MKPinAnnotationView *postAnnotationView = [[MKPinAnnotationView alloc] initWithAnnotation:postPoint reuseIdentifier:nil];
+        postAnnotationView.canShowCallout = YES;
+        postAnnotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    }
+    [self.mapView reloadInputViews];
+
     [self.navigationController.navigationBar setHidden:NO];
 }
 
@@ -74,6 +89,8 @@
         MKPinAnnotationView *pinLabel = [[MKPinAnnotationView alloc] initWithAnnotation:cUPoint reuseIdentifier:nil];
         pinLabel.canShowCallout = YES;
         pinLabel.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        pinLabel.pinColor = MKPinAnnotationColorGreen;
+        
         return pinLabel;
     }
     else {
@@ -93,8 +110,8 @@
     
     self.cUPoint = [[CurrentUserAnn alloc] init];
     self.cUPoint.coordinate = self.currentUserLocation.coordinate;
-    self.cUPoint.title = @"Update your title";
-    self.cUPoint.subtitle = @"Update your description";
+    self.cUPoint.title = @"Create a post";
+    self.cUPoint.subtitle = @"Add a description";
 
     [self.mapView addAnnotation:self.cUPoint];
 }
@@ -150,6 +167,8 @@
 - (IBAction)onRightBarButtonSelected:(id)sender
 {
     ListViewController *lvc = [self.storyboard instantiateViewControllerWithIdentifier:@"listVC"];
+    self.currentUserLocation = lvc.currentUserLocation;
+    lvc.parseDataHandler = self.parseDataHandler;
     [self.navigationController pushViewController:lvc animated:YES];
 }
 
@@ -159,7 +178,6 @@
     [self.descriptionField resignFirstResponder];
     self.cUPoint.title = self.titleField.text;
     self.cUPoint.subtitle = self.descriptionField.text;
-    self.parseDataHandler = [ParseDataHandler new];
 
     self.point = [PFGeoPoint geoPointWithLocation:self.currentUserLocation];
 
@@ -228,14 +246,6 @@
     self.searchFieldContainer.transform = CGAffineTransformMakeTranslation(0, y);
     [UIView commitAnimations];
 }
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.destinationViewController isKindOfClass:[ListViewController class]]) {
-        self.currentUserLocation = ((ListViewController *)[segue destinationViewController]).currentUserLocation;
-    }
-}
-
 
 
 @end

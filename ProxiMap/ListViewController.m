@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *posts;
-@property (nonatomic) PFQuery *query;
 
 @end
 
@@ -26,26 +25,9 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorColor = [UIColor clearColor];
 
+    [self.parseDataHandler queryPosts];
     self.posts = [NSArray new];
-
-    PFGeoPoint *point = [PFGeoPoint geoPointWithLocation:self.currentUserLocation];
-
-    self.query = [PFQuery queryWithClassName:@"Post"];
-    //PFGeoPoint *postLocation = [PFGeoPoint ]
-    [self.query whereKey:@"location" nearGeoPoint:point];
-
-    [self.query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d posts.", posts.count);
-            // Do something with the found objects
-            self.posts = posts;
-            [self.tableView reloadData];
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+    self.posts = self.parseDataHandler.posts;
 
     UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:[UIImage imageNamed:@"pins53.png"] forState:UIControlStateNormal];
@@ -57,6 +39,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+
     [self.tableView reloadData];
 }
 

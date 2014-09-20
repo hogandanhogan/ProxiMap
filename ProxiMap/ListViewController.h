@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ParseDataHandler.h"
 
 @interface ListViewController : UIViewController
 
 @property (nonatomic) CLLocation *currentUserLocation;
+@property (nonatomic) ParseDataHandler *parseDataHandler;
 
 @end

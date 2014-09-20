@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-
+        self.posts = [NSArray new];
     }
     
     return self;
@@ -35,6 +35,24 @@
         UIAlertView *errorAlert = [[UIAlertView alloc]
                                    initWithTitle:@"Error" message:@"Connection error, try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [errorAlert show];
+    }];
+}
+
+- (void)queryPosts
+{
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLocation:self.mapViewController.currentUserLocation];
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query whereKey:@"location" nearGeoPoint:point];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (!error) {
+            self.posts = posts;
+        } else {
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Connection error"
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+        }
     }];
 }
 

@@ -12,6 +12,10 @@
 @interface ParseDataHandler : NSObject
 
 - (void)saveToParse;
+- (void)queryPosts;
+- (id)init;
+
 @property (nonatomic) MapViewController *mapViewController;
+@property NSArray *posts;
 
 @end
