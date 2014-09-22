@@ -33,14 +33,14 @@
 
     self.parseDataHandler = [[ParseDataHandler alloc] init];
 
-    self.titleField.delegate = self;
-    self.descriptionField.delegate = self;
-
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboardonTapOutside:)];
     [self.view addGestureRecognizer:tap];
-    
+
+    self.titleField.delegate = self;
+    self.descriptionField.delegate = self;
+
     self.currentUser = [PFUser currentUser];
     if (!self.currentUser) {
         LoginViewController *lvc = [self.storyboard instantiateViewControllerWithIdentifier:@"showLogin"];
@@ -127,40 +127,16 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    [UIView animateWithDuration:0.15 animations:^(void) {
-        self.editView.hidden = NO;
-        self.editView.alpha = 0;
-        self.editView.alpha = 1.0;
-    } completion:nil];
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = [touches anyObject];
-    CGPoint point = [touch locationInView:self.view];
-    if (CGRectContainsPoint(self.editView.frame, point)) {
-        return;
-    } else {
-        [UIView animateWithDuration:0.3 animations:^(void) {
-            self.editView.alpha = 1.0;
-            self.editView.alpha = 0;
-        } completion:^(BOOL finished) {
-            self.editView.hidden = YES;
-        }];
-    }
-
+    float y = self.view.frame.origin.y + 233.0f;
+    [self.editView scrollToY:y];
+    [self.titleField becomeFirstResponder];
 }
 
 - (IBAction)onCancelEditView:(id)sender
 {
     [self.titleField resignFirstResponder];
     [self.descriptionField resignFirstResponder];
-    [UIView animateWithDuration:0.3 animations:^(void) {
-        self.editView.alpha = 1.0;
-        self.editView.alpha = 0;
-    } completion:^(BOOL finished) {
-        self.editView.hidden = YES;
-    }];
+    [self.editView scrollToY:-177.0f];
 }
 - (IBAction)onLeftBarButtonSelected:(id)sender
 {
@@ -202,52 +178,17 @@
 
     }];
 
-    [UIView animateWithDuration: 0.3 animations:^(void) {
-        self.editView.alpha = 1.0;
-        self.editView.alpha = 0;
-    } completion:^(BOOL finished) {
-        self.editView.hidden = YES;
-    }];
+    [self.editView scrollToY:-177];
+
 }
 
 - (IBAction)titleField:(id)sender{}
 - (IBAction)descriptionField:(id)sender{}
 - (IBAction)searchField:(id)sender {}
 
-- (IBAction)dismissKeyboardonTapOutside:(id)sender
+-(IBAction)dismissKeyboardonTapOutside:(id)sender
 {
-    [self.titleField resignFirstResponder];
-    [self.descriptionField resignFirstResponder];
     [self.searchField resignFirstResponder];
 }
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-        [self.editView scrollToView:self.view];
-
-        float y = self.searchFieldContainer.frame.origin.y - 120;
-        [self scrollToY:y];
-}
-
-- (void) textFieldDidEndEditing:(UITextField *)textField
-{
-    if ([self.view isFirstResponder]) {
-        return;
-    } else {
-        [self.editView scrollToY:0];
-        [textField resignFirstResponder];
-        [self scrollToY:0];
-    }
-}
-
-- (void)scrollToY:(float)y
-{
-    [UIView beginAnimations:@"registerScroll" context:NULL];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDuration:0.3];
-    self.searchFieldContainer.transform = CGAffineTransformMakeTranslation(0, y);
-    [UIView commitAnimations];
-}
-
 
 @end

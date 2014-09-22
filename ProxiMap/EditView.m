@@ -20,9 +20,6 @@
 {
     [super awakeFromNib];
     self.backgroundColor = [UIColor colorWithRed:0.44 green:0.75 blue:0.75 alpha:1];
-    self.hidden = YES;
-    self.layer.cornerRadius = 10;
-    self.layer.masksToBounds = YES;
 }
 
 #pragma mark - Layout
