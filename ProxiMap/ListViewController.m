@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *posts;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchField;
 
 @end
 
@@ -34,13 +35,24 @@
     [button addTarget:self action:@selector(onLeftBarButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
     [button setFrame:CGRectMake(0, 0, 16 , 24.2)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 
     [self.tableView reloadData];
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSLog(@"%f", scrollView.contentOffset.y);
+    CGRect rect = self.searchField.frame;
+    rect.origin.y = MAX(20.0f, -scrollView.contentOffset.y + 64.0f);
+    self.searchField.frame = rect;
+
+    CGRect rect2 = self.tableView.frame;
+    rect2.origin.y = MIN(108.0f, -scrollView.contentOffset.y + 108.0f);
+    self.tableView.frame = rect2;
 }
 
 #pragma mark - Table view data source

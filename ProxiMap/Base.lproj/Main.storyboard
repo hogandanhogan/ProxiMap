@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="mbs-pW-Kfs">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -50,7 +49,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knQ-ol-x3h" userLabel="Edit View" customClass="EditView">
-                                <rect key="frame" x="0.0" y="-177" width="320" height="233"/>
+                                <rect key="frame" x="0.0" y="-149" width="320" height="213"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Post" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyV-9Z-6ff">
                                         <rect key="frame" x="20" y="20" width="175" height="21"/>
@@ -58,7 +57,7 @@
                                             <constraint firstAttribute="height" constant="21" id="8Yo-O2-Fy1"/>
                                             <constraint firstAttribute="width" constant="175" id="Pnj-IO-XFV"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -69,7 +68,7 @@
                                             <constraint firstAttribute="height" constant="30" id="csR-6r-iXx"/>
                                         </constraints>
                                         <color key="textColor" white="0.19474224449999999" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="titleField:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="WJe-JR-pTa"/>
@@ -81,18 +80,7 @@
                                             <constraint firstAttribute="width" constant="197" id="kuM-Tu-XJX"/>
                                             <constraint firstAttribute="height" constant="21" id="v2F-gg-3rV"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your pin will remain while Proximap is running in the background" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSC-1B-gvs">
-                                        <rect key="frame" x="20" y="192" width="240" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="Pok-Wj-TYT"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="mQn-qk-V60"/>
-                                            <constraint firstAttribute="width" constant="240" id="xnd-HE-6XM"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="8"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -103,7 +91,7 @@
                                             <constraint firstAttribute="width" constant="210" id="g22-jt-urG"/>
                                         </constraints>
                                         <color key="textColor" white="0.19474224449999999" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="descriptionField:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="hcK-4G-aSo"/>
@@ -116,7 +104,7 @@
                                             <constraint firstAttribute="width" constant="46" id="62d-SY-1SF"/>
                                             <constraint firstAttribute="height" constant="30" id="KYW-tE-XlU"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                         <state key="normal" title="Save">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -126,12 +114,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojO-4p-Yf8">
-                                        <rect key="frame" x="256" y="11" width="50" height="30"/>
+                                        <rect key="frame" x="248" y="14" width="56" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="8OE-Zp-Red"/>
+                                            <constraint firstAttribute="width" constant="56" id="8OE-Zp-Red"/>
                                             <constraint firstAttribute="height" constant="30" id="iGY-2t-eFX"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -142,29 +130,26 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="DSC-1B-gvs" firstAttribute="leading" secondItem="Gx9-Ff-CUZ" secondAttribute="leading" id="1um-d7-nbS"/>
                                     <constraint firstItem="7ky-0V-6EM" firstAttribute="leading" secondItem="knQ-ol-x3h" secondAttribute="leading" constant="20" id="5QR-oN-W6b"/>
-                                    <constraint firstAttribute="height" constant="233" id="6BJ-5e-rou"/>
+                                    <constraint firstAttribute="height" constant="213" id="6BJ-5e-rou"/>
                                     <constraint firstItem="oyV-9Z-6ff" firstAttribute="top" secondItem="knQ-ol-x3h" secondAttribute="top" constant="20" id="7Ks-cl-B19"/>
                                     <constraint firstItem="TLO-nP-I3l" firstAttribute="top" secondItem="nGs-iH-L4f" secondAttribute="bottom" constant="8" id="ARP-fI-MET"/>
-                                    <constraint firstAttribute="trailing" secondItem="ojO-4p-Yf8" secondAttribute="trailing" constant="14" id="BEu-vq-XV3"/>
+                                    <constraint firstAttribute="trailing" secondItem="ojO-4p-Yf8" secondAttribute="trailing" constant="16" id="BEu-vq-XV3"/>
                                     <constraint firstItem="nGs-iH-L4f" firstAttribute="leading" secondItem="knQ-ol-x3h" secondAttribute="leading" constant="20" id="I1k-XO-via"/>
                                     <constraint firstItem="nGs-iH-L4f" firstAttribute="top" secondItem="7ky-0V-6EM" secondAttribute="bottom" constant="8" id="Ncu-qS-eWM"/>
                                     <constraint firstItem="oyV-9Z-6ff" firstAttribute="leading" secondItem="knQ-ol-x3h" secondAttribute="leading" constant="20" id="U3c-Z7-UvA"/>
                                     <constraint firstItem="TLO-nP-I3l" firstAttribute="leading" secondItem="knQ-ol-x3h" secondAttribute="leading" constant="20" id="ZZ2-gZ-Wm7"/>
-                                    <constraint firstItem="DSC-1B-gvs" firstAttribute="top" secondItem="Gx9-Ff-CUZ" secondAttribute="bottom" constant="8" id="h83-ek-wB4"/>
                                     <constraint firstItem="Gx9-Ff-CUZ" firstAttribute="leading" secondItem="knQ-ol-x3h" secondAttribute="leading" constant="20" id="lgL-Ob-ca1"/>
                                     <constraint firstItem="7ky-0V-6EM" firstAttribute="top" secondItem="oyV-9Z-6ff" secondAttribute="bottom" constant="8" id="mpW-kX-fQl"/>
-                                    <constraint firstItem="ojO-4p-Yf8" firstAttribute="top" secondItem="knQ-ol-x3h" secondAttribute="top" constant="11" id="oiJ-wZ-i3p"/>
+                                    <constraint firstItem="ojO-4p-Yf8" firstAttribute="top" secondItem="knQ-ol-x3h" secondAttribute="top" constant="14" id="oiJ-wZ-i3p"/>
                                     <constraint firstItem="TLO-nP-I3l" firstAttribute="top" secondItem="nGs-iH-L4f" secondAttribute="bottom" constant="8" id="s5o-dc-KM0"/>
-                                    <constraint firstAttribute="trailing" secondItem="DSC-1B-gvs" secondAttribute="trailing" constant="20" symbolic="YES" id="sDV-ce-V3r"/>
                                     <constraint firstItem="Gx9-Ff-CUZ" firstAttribute="top" secondItem="TLO-nP-I3l" secondAttribute="bottom" constant="8" id="x0n-Fr-S3h"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="knQ-ol-x3h" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="-177" id="1LW-UH-VyD"/>
+                            <constraint firstItem="knQ-ol-x3h" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="-149" id="1LW-UH-VyD"/>
                             <constraint firstItem="knQ-ol-x3h" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="5bY-57-tUl"/>
                             <constraint firstItem="85g-ep-bnv" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="46" id="EaR-nq-grM"/>
                             <constraint firstAttribute="trailing" secondItem="X59-te-ScJ" secondAttribute="trailing" id="HO9-Hi-Ahv"/>
@@ -276,6 +261,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Posts" id="ZCj-KS-5KZ"/>
                     <connections>
+                        <outlet property="searchField" destination="QoV-5Q-7xO" id="c6c-o1-xLq"/>
                         <outlet property="tableView" destination="YlE-7A-23i" id="mJC-Km-RNU"/>
                     </connections>
                 </viewController>

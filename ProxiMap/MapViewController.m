@@ -127,7 +127,7 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    float y = self.view.frame.origin.y + 233.0f;
+    float y = self.view.frame.origin.y + 213.0f;
     [self.editView scrollToY:y];
     [self.titleField becomeFirstResponder];
 }
@@ -136,7 +136,7 @@
 {
     [self.titleField resignFirstResponder];
     [self.descriptionField resignFirstResponder];
-    [self.editView scrollToY:-177.0f];
+    [self.editView scrollToY:-149.0f];
 }
 - (IBAction)onLeftBarButtonSelected:(id)sender
 {
@@ -178,7 +178,7 @@
 
     }];
 
-    [self.editView scrollToY:-177];
+    [self.editView scrollToY:-149.0f];
 
 }
 
