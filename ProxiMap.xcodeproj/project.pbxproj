@@ -36,6 +36,7 @@
 		79A2A96C19B14A14005BB9AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96A19B14A14005BB9AC /* LoginViewController.m */; };
 		79A2A96F19B14A32005BB9AC /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A2A96D19B14A32005BB9AC /* SigninViewController.m */; };
 		79FA3FB119B37987004B66AF /* EditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FA3FB019B37987004B66AF /* EditView.m */; };
+		E732833819D1FD42002E41EB /* SettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E732833719D1FD42002E41EB /* SettingsView.m */; };
 		E7A7B48119CB7651002A8356 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A7B48019CB7651002A8356 /* ListTableViewCell.m */; };
 		E7A7B48719CB8E1D002A8356 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7A7B48519CB8E1D002A8356 /* Images.xcassets */; };
 		E7ACCC7119C8C9660041577C /* PMRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ACCC7019C8C9660041577C /* PMRadialGradientLayer.m */; };
@@ -95,6 +96,8 @@
 		79FA3FAF19B37987004B66AF /* EditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditView.h; sourceTree = "<group>"; };
 		79FA3FB019B37987004B66AF /* EditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditView.m; sourceTree = "<group>"; };
 		8692E4B787A84C40AB6456F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E732833619D1FD42002E41EB /* SettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsView.h; path = ../SettingsView.h; sourceTree = "<group>"; };
+		E732833719D1FD42002E41EB /* SettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsView.m; path = ../SettingsView.m; sourceTree = "<group>"; };
 		E7A7B47F19CB7651002A8356 /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
 		E7A7B48019CB7651002A8356 /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
 		E7A7B48519CB8E1D002A8356 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 				79FA3FB019B37987004B66AF /* EditView.m */,
 				E7ACCC7219C8CB460041577C /* PMColor.h */,
 				E7ACCC7319C8CB460041577C /* PMColor.m */,
+				E732833619D1FD42002E41EB /* SettingsView.h */,
+				E732833719D1FD42002E41EB /* SettingsView.m */,
 				79A2A96D19B14A32005BB9AC /* SigninViewController.m */,
 				79A2A96E19B14A32005BB9AC /* SigninViewController.h */,
 				E7ACCC7819C8CC840041577C /* ListView.h */,
@@ -393,6 +398,7 @@
 				E7A7B48119CB7651002A8356 /* ListTableViewCell.m in Sources */,
 				E7ACCC7D19C8D6870041577C /* ListViewController.m in Sources */,
 				79FA3FB119B37987004B66AF /* EditView.m in Sources */,
+				E732833819D1FD42002E41EB /* SettingsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -111,10 +111,20 @@
     cell.textLabel.font = [UIFont fontWithName:@"Avenir Next" size:24.0];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.text = [post objectForKey:@"title"];
+    //cell.textLabel.frame.size = self.view.frame.size - 64.0f;
     cell.detailTextLabel.font = [UIFont fontWithName:@"Avenir Next" size:16.0];
     cell.detailTextLabel.textColor = [UIColor whiteColor];
     cell.detailTextLabel.text = [post objectForKey:@"title"];
     cell.detailTextLabel.text = [post objectForKey:@"subtitle"];
+
+    UIImageView *rightIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"male28.png"]];
+    rightIV.frame = CGRectMake(cell.frame.size.width - 64, cell.frame.size.height + 3, 58, 58);
+    rightIV.contentMode = UIViewContentModeScaleAspectFill;
+    rightIV.layer.cornerRadius = rightIV.frame.size.width/2;
+    rightIV.layer.borderColor = (__bridge CGColorRef)([UIColor whiteColor]);
+    rightIV.layer.borderWidth = 1.0;
+    rightIV.clipsToBounds = YES;
+    [cell addSubview:rightIV];
 
     return cell;
 }

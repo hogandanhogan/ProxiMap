@@ -10,18 +10,21 @@
 #import <MapKit/MapKit.h>
 #import "LoginViewController.h"
 #import "EditView.h"
+#import "SettingsView.h"
 #import "ParseDataHandler.h"
 #import "ListViewController.h"
 
-@interface MapViewController () <CLLocationManagerDelegate, UITextFieldDelegate>
+@interface MapViewController () <CLLocationManagerDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet EditView *editView;
+@property (weak, nonatomic) IBOutlet SettingsView *settingsView;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 @property (nonatomic) ParseDataHandler *parseDataHandler;
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 @property (weak, nonatomic) IBOutlet UIView *searchFieldContainer;
 @property (nonatomic) CLLocationManager *locationManager;
+@property UIImagePickerController *imagePicker;
 
 @end
 
@@ -30,6 +33,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.imagePicker = [UIImagePickerController new];
+    self.imagePicker.delegate = self;
+    self.imagePicker.navigationController.delegate = self;
 
     self.parseDataHandler = [[ParseDataHandler alloc] init];
 
@@ -132,6 +139,65 @@
     [self.titleField becomeFirstResponder];
 }
 
+#pragma mark - Image Picker Controller Delegate
+
++(BOOL)isSourceTypeAvailable:(UIImagePickerControllerSourceType)
+UIImagePickerControllerSourceTypePhotoLibrary
+{
+    return YES;
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        self.settingsView.picImageView.image = (UIImage *) [info valueForKey:UIImagePickerControllerOriginalImage];
+    }];
+}
+
+#pragma mark - Action Handlers
+
+- (IBAction)onAddPic:(id)sender
+{
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+}
+
+- (IBAction)onSaveSettingsView:(id)sender
+{
+    NSData *fileData = UIImagePNGRepresentation(self.settingsView.picImageView.image);
+    NSString *fileName = @"image.png";
+    NSString *fileType = @"image";
+
+    PFFile *file = [PFFile fileWithName:fileName data:fileData];
+
+    if (!self.post) {
+        self.post = [PFObject objectWithClassName:@"Post"];
+    }
+
+    [self.post setObject:file forKey:@"file"];
+    [self.post setObject:fileType forKey:@"fileType"];
+
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"An error occurred"
+                                                                message:@"Please try again"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles: nil];
+            [alertView show];
+        }
+    }];
+}
+
+- (IBAction)onCancelSettingsView:(id)sender
+{
+    [UIView animateWithDuration:0.3 animations:^(void) {
+        self.settingsView.alpha = 1.0;
+        self.settingsView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        self.settingsView.hidden = YES;
+    }];
+}
+
 - (IBAction)onCancelEditView:(id)sender
 {
     [self.titleField resignFirstResponder];
@@ -140,7 +206,11 @@
 }
 - (IBAction)onLeftBarButtonSelected:(id)sender
 {
-
+    [UIView animateWithDuration:0.15 animations:^(void) {
+        self.settingsView.hidden = NO;
+        self.settingsView.alpha = 0.0;
+        self.settingsView.alpha = 1.0;
+    } completion:nil];
 }
 - (IBAction)onRightBarButtonSelected:(id)sender
 {
@@ -159,7 +229,9 @@
 
     self.point = [PFGeoPoint geoPointWithLocation:self.currentUserLocation];
 
-    self.post = [PFObject objectWithClassName:@"Post"];
+    if (!self.post) {
+        self.post = [PFObject objectWithClassName:@"Post"];
+    }
     self.post[@"title"] = self.cUPoint.title;
     self.post[@"subtitle"] = self.cUPoint.subtitle;
     self.post[@"location"] = self.point;
