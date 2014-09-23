@@ -41,7 +41,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-
     [self.tableView reloadData];
 
     for (int i = 0; i < 8; i++) {
@@ -50,7 +49,7 @@
         cellFrame.origin.x -= cellFrame.size.width;
         cell.frame = cellFrame;
 
-        [UIView animateWithDuration:0.4
+        [UIView animateWithDuration:0.3
                               delay:i*0.12+0.2
              usingSpringWithDamping:0.5
               initialSpringVelocity:0.05
@@ -59,9 +58,7 @@
                                 CGRect cellFrame = cell.frame;
                                 cellFrame.origin.x += cellFrame.size.width;
                                 cell.frame = cellFrame;
-                            } completion:^(BOOL finished) {
-
-                            }];
+                            } completion:nil];
     }
 }
 
@@ -121,7 +118,7 @@
     rightIV.frame = CGRectMake(cell.frame.size.width - 64, cell.frame.size.height + 3, 58, 58);
     rightIV.contentMode = UIViewContentModeScaleAspectFill;
     rightIV.layer.cornerRadius = rightIV.frame.size.width/2;
-    rightIV.layer.borderColor = (__bridge CGColorRef)([UIColor whiteColor]);
+    rightIV.layer.borderColor = [UIColor whiteColor].CGColor;
     rightIV.layer.borderWidth = 1.0;
     rightIV.clipsToBounds = YES;
     [cell addSubview:rightIV];

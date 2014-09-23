@@ -10,10 +10,6 @@
 
 @interface SettingsView : UIView
 
-- (void)scrollToY:(float)y;
-- (void)scrollToView:(UIView *)view;
-- (void)scrollElement:(UIView *)view toPoint:(float)y;
-
 @property (weak, nonatomic) IBOutlet UIImageView *picImageView;
 
 @end

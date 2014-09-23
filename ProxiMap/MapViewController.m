@@ -154,10 +154,37 @@ UIImagePickerControllerSourceTypePhotoLibrary
     }];
 }
 
+- (void) navigationController: (UINavigationController *) navigationController  willShowViewController: (UIViewController *) viewController animated: (BOOL) animated {
+    if (self.imagePicker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
+        UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera:)];
+        viewController.navigationItem.rightBarButtonItems = [NSArray arrayWithObject:button];
+    } else {
+        UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithTitle:@"Library" style:UIBarButtonItemStylePlain target:self action:@selector(showLibrary:)];
+        viewController.navigationItem.leftBarButtonItems = [NSArray arrayWithObject:button];
+        viewController.navigationItem.title = @"Take Photo";
+        viewController.navigationController.navigationBarHidden = NO; // important
+    }
+}
+
+- (void) showCamera: (id) sender {
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+}
+
+- (void) showLibrary: (id) sender {
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+}
+
 #pragma mark - Action Handlers
 
 - (IBAction)onAddPic:(id)sender
 {
+
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+
     [self presentViewController:self.imagePicker animated:YES completion:nil];
 }
 

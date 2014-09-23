@@ -23,6 +23,11 @@
     [super awakeFromNib];
 
     self.picImageView.image = [UIImage imageNamed:@"male28.png"];
+    self.picImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.picImageView.layer.cornerRadius = self.picImageView.frame.size.width/2;
+    self.picImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.picImageView.layer.borderWidth = 1.0;
+    self.picImageView.clipsToBounds = YES;
 
     self.layer.cornerRadius = 10.0f;
     self.layer.masksToBounds = YES;
