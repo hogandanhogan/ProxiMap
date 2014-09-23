@@ -52,17 +52,17 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
 
-    UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"menu51.png"] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(onRightBarButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
-    [button setFrame:CGRectMake(0, 0, 18, 18)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    UIButton *rightButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setImage:[UIImage imageNamed:@"menu51.png"] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(onRightBarButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
+    [rightButton setFrame:CGRectMake(-2, 2, 22, 18)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 
-    UIButton *button2 =  [UIButton buttonWithType:UIButtonTypeCustom];
-    [button2 setImage:[UIImage imageNamed:@"settings.png"] forState:UIControlStateNormal];
-    [button2 addTarget:self action:@selector(onLeftBarButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
-    [button2 setFrame:CGRectMake(0, 0, 18, 18)];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button2];
+    UIButton *leftButton =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftButton setImage:[UIImage imageNamed:@"settings.png"] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(onLeftBarButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
+    [leftButton setFrame:CGRectMake(0, 0, 18, 18)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated

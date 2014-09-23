@@ -17,7 +17,7 @@
                   clientKey:@"NDxiYuXDLGB1BY9VSKoEG5dQKw55ydc7TP2eev84"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"Avenir-Heavy" size: 24.0], NSFontAttributeName, nil]];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"Avenir Next" size: 24.0], NSFontAttributeName, nil]];
 
     return YES;
 }
