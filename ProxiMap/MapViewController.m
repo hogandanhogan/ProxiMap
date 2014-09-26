@@ -13,6 +13,7 @@
 #import "SettingsView.h"
 #import "ParseDataHandler.h"
 #import "ListViewController.h"
+#import "PMColor.h"
 
 @interface MapViewController () <CLLocationManagerDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -154,23 +155,45 @@ UIImagePickerControllerSourceTypePhotoLibrary
     }];
 }
 
-- (void) navigationController: (UINavigationController *) navigationController  willShowViewController: (UIViewController *) viewController animated: (BOOL) animated {
+- (void) navigationController: (UINavigationController *) navigationController  willShowViewController: (UIViewController *) viewController animated: (BOOL) animated
+{
+    self.imagePicker.navigationBar.barStyle = UIBarStyleBlackOpaque;
     if (self.imagePicker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
         UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera:)];
+        button.tintColor = [PMColor whiteColor];
         viewController.navigationItem.rightBarButtonItems = [NSArray arrayWithObject:button];
     } else {
         UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithTitle:@"Library" style:UIBarButtonItemStylePlain target:self action:@selector(showLibrary:)];
+  UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reverseCamera:)];
+        button.tintColor = [PMColor whiteColor];
+        rightButton.tintColor = [PMColor whiteColor];
         viewController.navigationItem.leftBarButtonItems = [NSArray arrayWithObject:button];
+        viewController.navigationItem.rightBarButtonItems = [NSArray arrayWithObject:rightButton];
         viewController.navigationItem.title = @"Take Photo";
-        viewController.navigationController.navigationBarHidden = NO; // important
+        viewController.navigationController.navigationBarHidden = NO;
     }
 }
 
-- (void) showCamera: (id) sender {
+- (void)reverseCamera: (id) sender
+{
+    [UIView transitionWithView:self.imagePicker.view
+                      duration:1.0
+                       options:UIViewAnimationOptionAllowAnimatedContent | UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{
+                        if ( self.imagePicker.cameraDevice == UIImagePickerControllerCameraDeviceRear )
+                            self.imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+                        else
+                            self.imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+                    } completion:NULL];
+}
+
+- (void) showCamera: (id) sender
+{
     self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
 }
 
-- (void) showLibrary: (id) sender {
+- (void) showLibrary: (id) sender
+{
     self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 }
 
@@ -200,19 +223,20 @@ UIImagePickerControllerSourceTypePhotoLibrary
         self.post = [PFObject objectWithClassName:@"Post"];
     }
 
-    [self.post setObject:file forKey:@"file"];
-    [self.post setObject:fileType forKey:@"fileType"];
+    self.post[@"file"] = file;
+    self.post[@"fileType"] = fileType;
 
     [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"An error occurred"
-                                                                message:@"Please try again"
-                                                               delegate:self
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles: nil];
-            [alertView show];
+            [[[UIAlertView alloc] initWithTitle:@"An error occurred"
+                                        message:@"Please try again"
+                                       delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles: nil] show];
         }
     }];
+    
+    self.settingsView.hidden = YES;
 }
 
 - (IBAction)onCancelSettingsView:(id)sender
@@ -262,10 +286,6 @@ UIImagePickerControllerSourceTypePhotoLibrary
     self.post[@"title"] = self.cUPoint.title;
     self.post[@"subtitle"] = self.cUPoint.subtitle;
     self.post[@"location"] = self.point;
-
-
-    [self.currentUser setObject:self.cUPoint.title forKey:@"title"];
-    [self.currentUser setObject:self.cUPoint.subtitle forKey:@"subtitle"];
 
     [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {

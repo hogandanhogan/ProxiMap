@@ -21,13 +21,14 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-
-    self.picImageView.image = [UIImage imageNamed:@"male28.png"];
-    self.picImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.picImageView.layer.cornerRadius = self.picImageView.frame.size.width/2;
-    self.picImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.picImageView.layer.borderWidth = 1.0;
-    self.picImageView.clipsToBounds = YES;
+    if (!self.picImageView.image) {
+        _picImageView.image = [UIImage imageNamed:@"male28.png"];
+    }
+    _picImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _picImageView.layer.cornerRadius = self.picImageView.frame.size.width/2;
+    _picImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    _picImageView.layer.borderWidth = 1.0;
+    _picImageView.clipsToBounds = YES;
 
     self.layer.cornerRadius = 10.0f;
     self.layer.masksToBounds = YES;
