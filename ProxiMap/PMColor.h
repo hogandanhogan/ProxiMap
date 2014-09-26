@@ -10,13 +10,8 @@
 
 + (NSArray *)backgroundGradientColors;
 
-+ (UIColor *)switchTintColor;
-+ (UIColor *)switchThumbColor;
-
-+ (UIColor *)lightBlueColor;
-+ (UIColor *)darkBlueColor;
-+ (UIColor *)lightGrayColor;
++ (UIColor *)lightBlackColor;
++ (UIColor *)darkBlackColor;
 + (UIColor *)whiteColor;
-+ (UIColor *)blackColor;
 
 @end

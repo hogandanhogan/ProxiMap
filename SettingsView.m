@@ -26,7 +26,7 @@
     }
     _picImageView.contentMode = UIViewContentModeScaleAspectFill;
     _picImageView.layer.cornerRadius = self.picImageView.frame.size.width/2;
-    _picImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    _picImageView.layer.borderColor = [PMColor whiteColor].CGColor;
     _picImageView.layer.borderWidth = 1.0;
     _picImageView.clipsToBounds = YES;
 

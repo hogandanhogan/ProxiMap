@@ -7,19 +7,27 @@
 //
 
 #import "ListTableViewCell.h"
+#import "PMColor.h"
 
 @implementation ListTableViewCell
 
 - (void)awakeFromNib
 {
-    // Initialization code
-}
+    self.backgroundColor = [UIColor clearColor];
+    self.textLabel.font = [UIFont fontWithName:@"Avenir Next" size:24.0];
+    self.textLabel.textColor = [UIColor whiteColor];
+    //self.textLabel.frame.size.width = 320 - 64.0f;
+    self.detailTextLabel.font = [UIFont fontWithName:@"Avenir Next" size:16.0];
+    self.detailTextLabel.textColor = [UIColor whiteColor];
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    UIImageView *rightIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"male28.png"]];
+    rightIV.frame = CGRectMake(self.frame.size.width, self.frame.origin.y + 3, 58, 58);
+    rightIV.contentMode = UIViewContentModeScaleAspectFill;
+    rightIV.layer.cornerRadius = rightIV.frame.size.width/2;
+    rightIV.layer.borderColor = [UIColor whiteColor].CGColor;
+    rightIV.layer.borderWidth = 1.0;
+    rightIV.clipsToBounds = YES;
+    self.accessoryView = rightIV;
 }
 
 @end

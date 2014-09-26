@@ -63,7 +63,7 @@
     UIButton *rightButton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [rightButton setImage:[UIImage imageNamed:@"menu51.png"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(onRightBarButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
-    [rightButton setFrame:CGRectMake(-2, 2, 22, 18)];
+    [rightButton setFrame:CGRectMake(-4, 2, 24, 18)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 
     UIButton *leftButton =  [UIButton buttonWithType:UIButtonTypeCustom];
@@ -157,14 +157,25 @@ UIImagePickerControllerSourceTypePhotoLibrary
 
 - (void) navigationController: (UINavigationController *) navigationController  willShowViewController: (UIViewController *) viewController animated: (BOOL) animated
 {
-    self.imagePicker.navigationBar.barStyle = UIBarStyleBlackOpaque;
+
+//    NSDictionary *attrsDictionary1 = @{NSFontAttributeName : [UIFont fontWithName:@"Avenir Next" size:18.0],NSForegroundColorAttributeName : [PMColor whiteColor]};
+//    //NSDictionary *attrsDictionary =[NSDictionary dictionaryWithObject:[UIFont fontWithName:@"Avenir Next" size:18.0] forKey:NSFontAttributeName];
+//    NSAttributedString *attrString =[[NSAttributedString alloc] initWithString:@"Got Me" attributes:attrsDictionary1];
+//    [[UIButton appearance]setAttributedTitle:attrString forState:UIControlStateNormal];
+//    //[[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];
+//    [[UIButton appearance] titleLabel].textColor = [PMColor whiteColor];
+
+    self.imagePicker.navigationBar.barTintColor = [PMColor lightBlackColor];
     if (self.imagePicker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
         UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera:)];
         button.tintColor = [PMColor whiteColor];
         viewController.navigationItem.rightBarButtonItems = [NSArray arrayWithObject:button];
     } else {
+        [[UIBarButtonItem appearanceWhenContainedIn:[UIImagePickerController class], nil] setTitleTextAttributes:@{ NSFontAttributeName : [UIFont fontWithName:@"AmericanTypewriter" size:14.0] } forState:UIControlStateNormal];
         UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithTitle:@"Library" style:UIBarButtonItemStylePlain target:self action:@selector(showLibrary:)];
   UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reverseCamera:)];
+        [button setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Avenir Next" size:18.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
+              [rightButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Avenir Next" size:18.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
         button.tintColor = [PMColor whiteColor];
         rightButton.tintColor = [PMColor whiteColor];
         viewController.navigationItem.leftBarButtonItems = [NSArray arrayWithObject:button];
@@ -177,7 +188,7 @@ UIImagePickerControllerSourceTypePhotoLibrary
 - (void)reverseCamera: (id) sender
 {
     [UIView transitionWithView:self.imagePicker.view
-                      duration:1.0
+                      duration:0.75
                        options:UIViewAnimationOptionAllowAnimatedContent | UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{
                         if ( self.imagePicker.cameraDevice == UIImagePickerControllerCameraDeviceRear )
@@ -201,7 +212,6 @@ UIImagePickerControllerSourceTypePhotoLibrary
 
 - (IBAction)onAddPic:(id)sender
 {
-
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     } else {
@@ -213,6 +223,7 @@ UIImagePickerControllerSourceTypePhotoLibrary
 
 - (IBAction)onSaveSettingsView:(id)sender
 {
+    //TODO: This causes infinite loop
     NSData *fileData = UIImagePNGRepresentation(self.settingsView.picImageView.image);
     NSString *fileName = @"image.png";
     NSString *fileType = @"image";
