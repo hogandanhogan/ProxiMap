@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="mbs-pW-Kfs">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -333,6 +332,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YlE-7A-23i">
                                 <rect key="frame" x="0.0" y="108" width="320" height="478"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="478" id="IIl-OQ-Wx4"/>
+                                </constraints>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" textLabel="CEa-xz-mbb" detailTextLabel="aWm-Rf-cMr" style="IBUITableViewCellStyleSubtitle" id="p9t-OO-aZh" customClass="ListTableViewCell">
@@ -386,6 +388,7 @@
                     <connections>
                         <outlet property="searchBar" destination="QoV-5Q-7xO" id="mjV-2r-nJn"/>
                         <outlet property="tableView" destination="YlE-7A-23i" id="mJC-Km-RNU"/>
+                        <outlet property="tableViewHeightConstraint" destination="IIl-OQ-Wx4" id="ezN-Pv-JLq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sK3-9K-xfF" userLabel="First Responder" sceneMemberID="firstResponder"/>

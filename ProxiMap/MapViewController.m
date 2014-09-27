@@ -224,8 +224,8 @@ UIImagePickerControllerSourceTypePhotoLibrary
 - (IBAction)onSaveSettingsView:(id)sender
 {
     //TODO: This causes infinite loop
-    NSData *fileData = UIImagePNGRepresentation(self.settingsView.picImageView.image);
-    NSString *fileName = @"image.png";
+    NSData *fileData = UIImageJPEGRepresentation(self.settingsView.picImageView.image, 500);
+    NSString *fileName = @"image.jpg";
     NSString *fileType = @"image";
 
     PFFile *file = [PFFile fileWithName:fileName data:fileData];

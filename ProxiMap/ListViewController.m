@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *posts;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
 
 @end
 
@@ -32,7 +33,6 @@
     [self.parseDataHandler queryPosts];
     self.posts = [NSArray new];
     self.posts = self.parseDataHandler.posts;
-
     UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:[UIImage imageNamed:@"pins9.png"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(onLeftBarButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
@@ -71,21 +71,8 @@
 
     CGRect tableViewRect = self.tableView.frame;
     tableViewRect.origin.y = MIN(108.0f, -scrollView.contentOffset.y + 108.0f);
-    tableViewRect.size.height = MIN(self.view.frame.size.height - 108.0, scrollView.contentOffset.y + self.view.frame.size.height);
+    self.tableViewHeightConstraint.constant += scrollView.contentOffset.y;
     self.tableView.frame = tableViewRect;
-
-//    CGPoint contentOffset = self.tableView.contentOffset;
-    NSLog(@"CO:%f", scrollView.contentOffset.y);
-//    NSLog(@"Tableview CO:%f", self.tableView.contentOffset.y);
-
-    // if the height of the content is greater than the maxHeight of
-    // total space on the screen, limit the height to the size of the
-    // superview.
-
-//    if (contentOffset.y > 0) {
-//        contentOffset.y += 44;
-//        self.tableView.contentOffset = contentOffset;
-//    }
 }
 
 #pragma mark - Table view data source
