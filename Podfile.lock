@@ -1,12 +1,16 @@
 PODS:
   - Bolts (1.1.2)
-  - Facebook-iOS-SDK (3.17.0):
-    - Bolts
+  - Facebook-iOS-SDK (3.19.0):
+    - Bolts (~> 1.0)
+  - JSQMessagesViewController (6.0-beta2):
+    - JSQSystemSoundPlayer
+  - JSQSystemSoundPlayer (1.5.2)
   - Parse (1.2.21):
     - Facebook-iOS-SDK (~> 3.17)
   - TPKeyboardAvoiding (1.2.4)
 
 DEPENDENCIES:
+  - JSQMessagesViewController
   - Parse (~> 1.2.20)
   - TPKeyboardAvoiding (from `https://github.com/michaeltyson/TPKeyboardAvoiding.git`, tag `1.2.4`)
 
@@ -17,8 +21,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Bolts: 2635e8698a630774689441047f3465d78c48d485
-  Facebook-iOS-SDK: f20274d809f112ba540842e2b6cbe50128d51b7b
+  Facebook-iOS-SDK: cb7d74759d0b1ba546e6e6f1dde407b0d4e448d6
+  JSQMessagesViewController: f6f54d0b2d6c8efedac88fb4c9d145980b4a8b85
+  JSQSystemSoundPlayer: c24914bc96ff5365b5d28b59d7ecffd60d1c5587
   Parse: 4be4e9fe2ee6dae16010e7622a5641a7c89154b7
   TPKeyboardAvoiding: 8697452d663b08df4f7bbcc983741e9754aaeacc
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.34.2
