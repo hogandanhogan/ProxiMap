@@ -10,4 +10,6 @@
 
 @interface ListTableViewCell : UITableViewCell
 
+@property (nonatomic) UIImageView *rightIV;
+
 @end

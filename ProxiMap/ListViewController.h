@@ -13,5 +13,8 @@
 
 @property (nonatomic) CLLocation *currentUserLocation;
 @property (nonatomic) ParseDataHandler *parseDataHandler;
+@property (nonatomic) NSArray *posts;
+@property (nonatomic) NSArray *images;
+@property (nonatomic) NSDictionary *imageDictionary;
 
 @end

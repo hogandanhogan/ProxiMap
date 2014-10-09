@@ -13,9 +13,11 @@
 
 - (void)saveToParse;
 - (void)queryPosts;
+- (void)queryImages;
 - (id)init;
 
 @property (nonatomic) MapViewController *mapViewController;
 @property NSArray *posts;
+@property NSArray *images;
 
 @end

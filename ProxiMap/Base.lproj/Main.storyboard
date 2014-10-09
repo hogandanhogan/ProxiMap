@@ -226,6 +226,9 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onLogOut:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uLl-1y-aDZ"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJK-uQ-ZYs">
                                         <rect key="frame" x="87" y="77" width="107" height="107"/>
@@ -332,9 +335,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YlE-7A-23i">
                                 <rect key="frame" x="0.0" y="108" width="320" height="478"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="478" id="IIl-OQ-Wx4"/>
-                                </constraints>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" textLabel="CEa-xz-mbb" detailTextLabel="aWm-Rf-cMr" style="IBUITableViewCellStyleSubtitle" id="p9t-OO-aZh" customClass="ListTableViewCell">
@@ -377,7 +377,10 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="YlE-7A-23i" secondAttribute="trailing" constant="-16" id="6gh-cv-kke"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QoV-5Q-7xO" secondAttribute="trailing" constant="-16" id="9Xa-ha-JgM"/>
+                            <constraint firstItem="YlE-7A-23i" firstAttribute="leading" secondItem="gAT-eT-L6f" secondAttribute="leadingMargin" constant="-16" id="Czz-8a-7gh"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="YlE-7A-23i" secondAttribute="bottom" constant="-18" id="Gc4-rn-Ojp"/>
                             <constraint firstAttribute="bottomMargin" secondItem="YlE-7A-23i" secondAttribute="bottom" constant="-18" id="ItF-DW-k5P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YlE-7A-23i" secondAttribute="trailing" constant="-16" id="SC5-Lc-fS5"/>
                             <constraint firstItem="QoV-5Q-7xO" firstAttribute="leading" secondItem="gAT-eT-L6f" secondAttribute="leadingMargin" constant="-16" id="Xu1-Ea-9XI"/>
                             <constraint firstItem="QoV-5Q-7xO" firstAttribute="top" secondItem="gAT-eT-L6f" secondAttribute="topMargin" constant="64" id="m2r-jt-cRl"/>
                             <constraint firstItem="YlE-7A-23i" firstAttribute="top" secondItem="QoV-5Q-7xO" secondAttribute="bottom" id="nG7-rV-2Fw"/>
@@ -388,7 +391,7 @@
                     <connections>
                         <outlet property="searchBar" destination="QoV-5Q-7xO" id="mjV-2r-nJn"/>
                         <outlet property="tableView" destination="YlE-7A-23i" id="mJC-Km-RNU"/>
-                        <outlet property="tableViewHeightConstraint" destination="IIl-OQ-Wx4" id="ezN-Pv-JLq"/>
+                        <outlet property="topToSearchBarConstraint" destination="m2r-jt-cRl" id="Sjf-Io-rEX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sK3-9K-xfF" userLabel="First Responder" sceneMemberID="firstResponder"/>

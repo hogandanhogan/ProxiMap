@@ -96,10 +96,20 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     MKPinAnnotationView *pinLabel = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+
     pinLabel.canShowCallout = YES;
-    pinLabel.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+
     if([annotation isKindOfClass:[CurrentUserAnnotation class]]) {
         pinLabel.pinColor = MKPinAnnotationColorGreen;
+        pinLabel.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    } else {
+
+        UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setImage:[UIImage imageNamed:@"chat21.png"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(onMessageUser:) forControlEvents:UIControlEventTouchUpInside];
+        [button setFrame:CGRectMake(0, 0, 40, 40)];
+
+        pinLabel.rightCalloutAccessoryView = button;
     }
     return pinLabel;
 
@@ -113,7 +123,7 @@
     self.currentUserLocation = [locations lastObject];
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.currentUserLocation.coordinate, 250, 250);
-    [_mapView setRegion:region];
+    [self.mapView setRegion:region];
     
     self.cUPoint = [[CurrentUserAnnotation alloc] init];
     self.cUPoint.coordinate = self.currentUserLocation.coordinate;
@@ -135,9 +145,12 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    float y = self.view.frame.origin.y + 213.0f;
-    [self.editView scrollToY:y];
-    [self.titleField becomeFirstResponder];
+    if ([view.annotation isKindOfClass:[CurrentUserAnnotation class]]) {
+        float y = self.view.frame.origin.y + 213.0f;
+        [self.editView scrollToY:y];
+        [self.titleField becomeFirstResponder];
+    }
+
 }
 
 #pragma mark - Image Picker Controller Delegate
@@ -223,21 +236,23 @@ UIImagePickerControllerSourceTypePhotoLibrary
 
 - (IBAction)onSaveSettingsView:(id)sender
 {
-    //TODO: This causes infinite loop
-    NSData *fileData = UIImageJPEGRepresentation(self.settingsView.picImageView.image, 500);
-    NSString *fileName = @"image.jpg";
-    NSString *fileType = @"image";
-
-    PFFile *file = [PFFile fileWithName:fileName data:fileData];
-
-    if (!self.post) {
-        self.post = [PFObject objectWithClassName:@"Post"];
+    if (!self.image) {
+        self.image = [PFObject objectWithClassName:@"Image"];
     }
 
-    self.post[@"file"] = file;
-    self.post[@"fileType"] = fileType;
+    NSData *fileData = UIImageJPEGRepresentation(self.settingsView.picImageView.image, 0.9);
+    NSString *fileName = @"image.jpg";
 
-    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    PFFile *file = [PFFile fileWithName:fileName data:fileData];
+    self.image[@"parent"] = self.currentUser;
+    self.image[@"file"] = file;
+
+//    PFUser *user = [PFUser currentUser];
+//    PFRelation *relation = [self.currentUser relationForKey:@"pic"];
+//    [relation addObject:self.image];
+//    [self.currentUser saveInBackground];
+
+    [self.image saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
             [[[UIAlertView alloc] initWithTitle:@"An error occurred"
                                         message:@"Please try again"
@@ -246,8 +261,13 @@ UIImagePickerControllerSourceTypePhotoLibrary
                               otherButtonTitles: nil] show];
         }
     }];
-    
-    self.settingsView.hidden = YES;
+
+    [UIView animateWithDuration:0.3 animations:^(void) {
+        self.settingsView.alpha = 1.0;
+        self.settingsView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        self.settingsView.hidden = YES;
+    }];
 }
 
 - (IBAction)onCancelSettingsView:(id)sender
@@ -268,11 +288,35 @@ UIImagePickerControllerSourceTypePhotoLibrary
 }
 - (IBAction)onLeftBarButtonSelected:(id)sender
 {
-    [UIView animateWithDuration:0.15 animations:^(void) {
+//    self.view.backgroundColor = [UIColor clearColor];
+//    UIVisualEffect *blurEffect;
+//    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+//
+//    UIVisualEffectView *visualEffectView;
+//    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+//    [visualEffectView.contentView addSubview:self.settingsView];
+//
+//    visualEffectView.frame = self.view.bounds;
+//    [self.view addSubview:visualEffectView];
+    [UIView animateWithDuration:0.30 animations:^(void) {
         self.settingsView.hidden = NO;
         self.settingsView.alpha = 0.0;
         self.settingsView.alpha = 1.0;
     } completion:nil];
+
+    CGRect frame = self.settingsView.frame;
+    frame.origin.y -= 100;
+    self.settingsView.frame = frame;
+    [UIView animateWithDuration:1.0
+                          delay:0
+         usingSpringWithDamping:0.5
+          initialSpringVelocity:0.2
+                        options:UIViewAnimationOptionCurveEaseIn animations:^{
+                            CGRect frame = self.settingsView.frame;
+                            frame.origin.y += 100;
+                            self.settingsView.frame = frame;
+                        } completion:nil];
+
 }
 - (IBAction)onRightBarButtonSelected:(id)sender
 {
@@ -297,6 +341,7 @@ UIImagePickerControllerSourceTypePhotoLibrary
     self.post[@"title"] = self.cUPoint.title;
     self.post[@"subtitle"] = self.cUPoint.subtitle;
     self.post[@"location"] = self.point;
+    self.post[@"parent"] = self.currentUser;
 
     [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
@@ -311,6 +356,16 @@ UIImagePickerControllerSourceTypePhotoLibrary
     [self.editView scrollToY:-149.0f];
 
 }
+
+- (IBAction)onMessageUser:(id)sender
+{
+
+}
+- (IBAction)onLogOut:(id)sender
+{
+    [PFUser logOut];
+    LoginViewController *lvc = [self.storyboard instantiateViewControllerWithIdentifier:@"showLogin"];
+    [self.navigationController pushViewController:lvc animated:YES];}
 
 - (IBAction)titleField:(id)sender{}
 - (IBAction)descriptionField:(id)sender{}

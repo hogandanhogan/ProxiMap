@@ -14,6 +14,7 @@
 @property (nonatomic) PFUser *currentUser;
 @property (nonatomic) PFGeoPoint *point;
 @property (nonatomic) PFObject *post;
+@property (nonatomic) PFObject *image;
 @property (nonatomic) CurrentUserAnnotation *cUPoint;
 @property (nonatomic) CLLocation *currentUserLocation;
 

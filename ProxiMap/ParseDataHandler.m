@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         self.posts = [NSArray new];
+        self.images = [NSArray new];
     }
     
     return self;
@@ -27,9 +28,13 @@
     self.mapViewController.post[@"subtitle"] = self.mapViewController.cUPoint.subtitle;
     self.mapViewController.post[@"location"] = self.mapViewController.currentUserLocation;
     [self.mapViewController.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        UIAlertView *errorAlert = [[UIAlertView alloc]
-                                   initWithTitle:@"Error" message:@"Connection error, try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [errorAlert show];
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:@"Error"
+                                        message:@"Connection error, try again"
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+        }
     }];
 }
 
@@ -42,6 +47,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (!error) {
             self.posts = posts;
+
         } else {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Connection error"
                                        delegate:nil
@@ -49,6 +55,22 @@
                               otherButtonTitles:nil] show];
         }
     }];
+}
+
+- (void)queryImages
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Image"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *images, NSError *error) {
+        if (!error) {
+            self.images = images;
+        } else {
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Connection error"
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+        }
+    }];
+
 }
 
 @end
